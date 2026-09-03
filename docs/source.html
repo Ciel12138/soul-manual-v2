@@ -392,7 +392,7 @@
 
         <div id="stats-bar" class="flex flex-wrap items-center gap-3 mb-8"></div>
 
-        <div id="card-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+        <div id="card-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="soul-glass rounded-[var(--soul-radius-large)] p-8 text-center text-[var(--soul-muted-foreground)]">正在加载原文…</div>
         </div>
 
@@ -624,7 +624,7 @@
         return html;
       }
 
-      function excerpt(lines, max = 80) {
+      function excerpt(lines, max = 140) {
         const text = lines.join(' ').replace(/\*\*|\*|`/g, '').trim();
         if (!text) return '（本节为章节标题）';
         return text.length > max ? text.slice(0, max) + '…' : text;
@@ -642,7 +642,7 @@
           return;
         }
         gridEl.innerHTML = filtered.map((s, i) => `
-          <article class="source-card soul-glass rounded-[var(--soul-radius-large)] p-6 flex flex-col h-full cursor-pointer group soul-animate-fade-up" style="animation-delay: ${Math.min(i * 0.05, 0.5)}s" data-index="${sections.indexOf(s)}" data-id="${s.id}">
+          <article class="source-card soul-glass rounded-[var(--soul-radius-large)] p-7 flex flex-col h-full cursor-pointer group soul-animate-fade-up" style="animation-delay: ${Math.min(i * 0.05, 0.5)}s" data-index="${sections.indexOf(s)}" data-id="${s.id}">
             <div class="flex items-start justify-between gap-3 mb-3">
               <span class="text-[10px] soul-text-label tracking-[0.15em] text-[var(--soul-primary)]">SECTION ${String(sections.indexOf(s) + 1).padStart(2, '0')}</span>
               <span class="text-xs text-[var(--soul-muted-foreground)]">${wordCount(s.body)} 字</span>
@@ -836,4 +836,5 @@
   </style>
 </body>
 </html>
+
 
