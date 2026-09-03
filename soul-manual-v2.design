@@ -366,6 +366,20 @@
         "x": 0,
         "y": 3400
       }
+    },
+    {
+      "id": "image-002",
+      "title": "琉璃色电脑壁纸",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1788412800000,
+      "devMetadata": {
+        "imageSrc": "assets/liuli-wallpaper-desktop.jpg"
+      },
+      "canvasData": {
+        "x": 760,
+        "y": 3400
+      }
     }
   ],
   "config": {

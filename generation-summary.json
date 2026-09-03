@@ -4,10 +4,10 @@
     "version": "2026.08.06.21.24.57",
     "release": "unsupported-size-user-confirmation"
   },
-  "requestedSizeVerbatim": "手机壁纸（9:16 竖版）",
-  "actualImageSize": "portrait_16_9",
-  "sizeConfirmation": "用户未指定精确尺寸，按常见手机壁纸比例 9:16（720×1280）生成",
-  "assetCount": 1,
+  "requestedSizeVerbatim": "电脑壁纸",
+  "actualImageSize": "2048x1800",
+  "sizeConfirmation": "用户未指定精确尺寸；首选 1920×1080 因后端最小像素限制（3,686,400）被拒绝，改用 2048×1800（满足限制的最宽横版）",
+  "assetCount": 2,
   "assets": [
     {
       "filename": "liuli-wallpaper-phone.jpg",
@@ -15,6 +15,13 @@
       "intendedSize": "720×1280",
       "status": "generated",
       "designNodeId": "image-001"
+    },
+    {
+      "filename": "liuli-wallpaper-desktop.jpg",
+      "title": "琉璃色电脑壁纸",
+      "intendedSize": "2048×1800",
+      "status": "generated",
+      "designNodeId": "image-002"
     }
   ]
 }

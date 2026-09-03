@@ -79,7 +79,7 @@
     ]
   },
   "projectFileHashes": {
-    "soul-manual-v2.design": "a1cf2b86b6ed341958f5d843760dff2a026c34f1632a629f61bf1876eabc5c5f",
+    "soul-manual-v2.design": "984a027bcc031d7957e0ab7849235e7e9e614ed60c090cb070fd1ff7f15559ca",
     "colors_and_type.css": "8300dddfadf4941820b800bb653257a4823ff4b970e063f254ccb82f2bbc23c0",
     "runtime-orchestration-summary.json": "69c248d724305305c5afdc7a80d56390316fbd334bbcc61771e78d1c0c95b670",
     "pages/collection.html": "13b2885b11a3f5174edee958b4ba44a94ab9fe986af7331f384c2003087cbf4b",
@@ -92,10 +92,11 @@
     "pages/relations.html": "12b260e94499c080cfb823da3cb3912447cda4a2a22fcfa555ff37a126b987e6",
     "pages/source.html": "5686112d03fe02fd7b3fa85a8372460ef6253abc4d2e07e8fe384b4e28e2ac99",
     "pages/tools.html": "1e53cdcde3f9f34c843d79f8d24ffa45ea423a6097b15676baa7a3359710af4a",
+    "assets/liuli-wallpaper-desktop.jpg": "06a7d47885452d0fb3bc4cc24b81460025e906f06147a41fa823cda687ea3d9a",
     "assets/liuli-wallpaper-phone.jpg": "617a147e7485b7dd92b2eb89966dcd51d0174ea9b3bb70a5830d29dc906bb26d"
   },
   "designDir": "C:\\Users\\92538\\AppData\\Roaming\\TRAE SOLO CN\\ModularData\\ai-agent\\work-mode-projects\\6a98b9c722d450b21d072639\\soul-manual-v2",
   "expectedPages": null,
   "requireInteractions": null,
-  "checkedAt": "2026-09-03T14:14:54.412Z"
+  "checkedAt": "2026-09-03T14:22:55.429Z"
 }
