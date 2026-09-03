@@ -79,7 +79,7 @@
     ]
   },
   "projectFileHashes": {
-    "soul-manual-v2.design": "24e1c6bb455f0e6094e3bc6f45fafdbdb94d9a3749cc3fce126583815b7b9f9e",
+    "soul-manual-v2.design": "13f5a2fa73a3c59cf196e44f765341ef22055c2aaf3224e54c4053760898b3fc",
     "colors_and_type.css": "8300dddfadf4941820b800bb653257a4823ff4b970e063f254ccb82f2bbc23c0",
     "runtime-orchestration-summary.json": "69c248d724305305c5afdc7a80d56390316fbd334bbcc61771e78d1c0c95b670",
     "pages/collection.html": "13b2885b11a3f5174edee958b4ba44a94ab9fe986af7331f384c2003087cbf4b",
@@ -96,5 +96,5 @@
   "designDir": "C:\\Users\\92538\\AppData\\Roaming\\TRAE SOLO CN\\ModularData\\ai-agent\\work-mode-projects\\6a98b9c722d450b21d072639\\soul-manual-v2",
   "expectedPages": 10,
   "requireInteractions": null,
-  "checkedAt": "2026-09-03T00:34:28.302Z"
+  "checkedAt": "2026-09-03T03:01:44.260Z"
 }
