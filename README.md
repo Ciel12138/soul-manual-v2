@@ -20,6 +20,21 @@ node server.mjs
 # 打开 http://localhost:8765/
 ```
 
-## 部署
+## 部署到 GitHub Pages
 
-推送到 GitHub 仓库后，GitHub Actions 会自动部署到 `gh-pages` 分支并启用 GitHub Pages。
+仓库已配置 GitHub Actions 自动部署（见 `.github/workflows/deploy.yml`）。按以下步骤完成上线：
+
+1. 在 GitHub 创建一个新的空仓库，例如 `soul-manual-v2`
+2. 将本地仓库推送到 GitHub：
+
+```bash
+git remote add origin https://github.com/YOUR_USERNAME/soul-manual-v2.git
+git branch -M main
+git push -u origin main
+```
+
+3. 推送后进入仓库 **Settings → Pages**
+4. 在 **Source** 中选择 **GitHub Actions**
+5. 等待 Actions 运行完成，访问页面 URL（形如 `https://YOUR_USERNAME.github.io/soul-manual-v2/`）
+
+之后每次推送 `main` 分支都会自动重新部署。
