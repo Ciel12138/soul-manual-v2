@@ -1,0 +1,20 @@
+{
+  "skill": {
+    "name": "solo-graphic-generation",
+    "version": "2026.08.06.21.24.57",
+    "release": "unsupported-size-user-confirmation"
+  },
+  "requestedSizeVerbatim": "手机壁纸（9:16 竖版）",
+  "actualImageSize": "portrait_16_9",
+  "sizeConfirmation": "用户未指定精确尺寸，按常见手机壁纸比例 9:16（720×1280）生成",
+  "assetCount": 1,
+  "assets": [
+    {
+      "filename": "liuli-wallpaper-phone.jpg",
+      "title": "琉璃色手机壁纸",
+      "intendedSize": "720×1280",
+      "status": "generated",
+      "designNodeId": "image-001"
+    }
+  ]
+}

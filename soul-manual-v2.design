@@ -352,6 +352,20 @@
           }
         ]
       }
+    },
+    {
+      "id": "image-001",
+      "title": "琉璃色手机壁纸",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1788412800000,
+      "devMetadata": {
+        "imageSrc": "assets/liuli-wallpaper-phone.jpg"
+      },
+      "canvasData": {
+        "x": 0,
+        "y": 3400
+      }
     }
   ],
   "config": {
