@@ -383,20 +383,63 @@
     </aside>
 
     <main class="flex-1 min-w-0">
-      <div class="max-w-3xl mx-auto px-6 py-12 md:py-16">
-        <div class="mb-10">
+      <div class="max-w-6xl mx-auto px-6 py-12 md:py-16">
+        <div class="mb-10 text-center md:text-left">
           <p class="soul-text-label text-xs text-[var(--soul-primary)] mb-3 tracking-[0.2em]">SOUL MANUAL · RAW</p>
           <h1 class="soul-text-display text-4xl md:text-5xl mb-3">灵魂说明书原文</h1>
-          <p class="text-[var(--soul-muted-foreground)]">单一事实来源：所有设定以本文件为准。可滚动阅读，左侧目录可快速跳转。</p>
+          <p class="text-[var(--soul-muted-foreground)] max-w-2xl">单一事实来源：所有设定以本文件为准。点击任意卡片进入独立阅读视图，可分享直达链接。</p>
         </div>
-        <article id="content" class="prose soul-text-body">
-          <div class="text-[var(--soul-muted-foreground)]">正在加载原文…</div>
-        </article>
+
+        <div id="stats-bar" class="flex flex-wrap items-center gap-3 mb-8"></div>
+
+        <div id="card-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          <div class="soul-glass rounded-[var(--soul-radius-large)] p-8 text-center text-[var(--soul-muted-foreground)]">正在加载原文…</div>
+        </div>
+
         <div class="mt-16 pt-8 border-t border-[var(--soul-border)] text-center">
           <a href="index.html" data-dom-id="nav-home" class="inline-flex items-center gap-2 px-6 py-3 rounded-[var(--soul-radius-medium)] soul-glass hover:bg-[var(--soul-muted)] transition-colors text-sm">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
             返回全景总览
           </a>
+        </div>
+      </div>
+
+      <!-- Card reader modal -->
+      <div id="reader-modal" class="fixed inset-0 z-[100] hidden" aria-hidden="true">
+        <div class="absolute inset-0 bg-[var(--soul-neutral-950)]/60 backdrop-blur-sm" id="modal-backdrop"></div>
+        <div class="absolute inset-x-0 bottom-0 md:inset-0 md:flex md:items-center md:justify-center p-0 md:p-6">
+          <div class="relative w-full md:max-w-3xl md:max-h-[85vh] h-[92vh] md:h-auto soul-glass-strong rounded-t-[var(--soul-radius-large)] md:rounded-[var(--soul-radius-large)] flex flex-col shadow-2xl overflow-hidden">
+            <div class="flex items-center justify-between px-5 py-4 border-b border-[var(--soul-border)]">
+              <div class="min-w-0">
+                <p id="modal-meta" class="text-xs text-[var(--soul-muted-foreground)] mb-0.5"></p>
+                <h2 id="modal-title" class="soul-text-heading text-lg truncate pr-4"></h2>
+              </div>
+              <div class="flex items-center gap-2 shrink-0">
+                <button id="btn-share" class="p-2 rounded-[var(--soul-radius-small)] hover:bg-[var(--soul-muted)] transition-colors text-[var(--soul-primary)]" title="分享">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                </button>
+                <button id="btn-prev" class="hidden md:block p-2 rounded-[var(--soul-radius-small)] hover:bg-[var(--soul-muted)] transition-colors text-[var(--soul-muted-foreground)]" title="上一篇">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                </button>
+                <button id="btn-next" class="hidden md:block p-2 rounded-[var(--soul-radius-small)] hover:bg-[var(--soul-muted)] transition-colors text-[var(--soul-muted-foreground)]" title="下一篇">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                </button>
+                <button id="btn-close" class="p-2 rounded-[var(--soul-radius-small)] hover:bg-[var(--soul-muted)] transition-colors text-[var(--soul-muted-foreground)]" title="关闭">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+              </div>
+            </div>
+            <div id="modal-body" class="flex-1 overflow-y-auto reader-scroll p-6 md:p-10 prose soul-text-body"></div>
+            <div class="px-5 py-4 border-t border-[var(--soul-border)] flex items-center justify-between">
+              <button id="btn-prev-mobile" class="md:hidden inline-flex items-center gap-1 text-sm text-[var(--soul-muted-foreground)] hover:text-[var(--soul-primary)]">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> 上一篇
+              </button>
+              <span id="modal-counter" class="text-xs text-[var(--soul-muted-foreground)]"></span>
+              <button id="btn-next-mobile" class="md:hidden inline-flex items-center gap-1 text-sm text-[var(--soul-muted-foreground)] hover:text-[var(--soul-primary)]">
+                下一篇 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </main>
@@ -481,10 +524,18 @@
 
   <script>
     (function(){
-      const contentEl = document.getElementById('content');
+      const gridEl = document.getElementById('card-grid');
+      const statsEl = document.getElementById('stats-bar');
       const tocEl = document.getElementById('toc');
       const searchInput = document.getElementById('search-input');
-      let headings = [];
+      const modal = document.getElementById('reader-modal');
+      const modalBackdrop = document.getElementById('modal-backdrop');
+      const modalTitle = document.getElementById('modal-title');
+      const modalMeta = document.getElementById('modal-meta');
+      const modalBody = document.getElementById('modal-body');
+      const modalCounter = document.getElementById('modal-counter');
+      let sections = [];
+      let currentIndex = -1;
 
       function escapeHtml(s) {
         return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -494,8 +545,52 @@
         return 'h-' + s.toLowerCase().replace(/[^\w\u4e00-\u9fa5]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
       }
 
-      function renderMarkdown(md) {
+      function inline(s) {
+        return s
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.+?)\*/g, '<em>$1</em>')
+          .replace(/`([^`]+)`/g, '<code>$1</code>');
+      }
+
+      function parseMarkdown(md) {
         const lines = md.split(/\r?\n/);
+        const result = [];
+        let current = null;
+        let buffer = [];
+        let sectionIndex = 0;
+
+        function flush() {
+          if (!current && buffer.length) {
+            current = { level: 3, text: '序言', id: slugify('序言'), body: [] };
+            sectionIndex++;
+          }
+          if (current) {
+            current.raw = buffer.join('\n');
+            result.push(current);
+          }
+          buffer = [];
+        }
+
+        for (let line of lines) {
+          const h1 = line.match(/^#\s+(.+)$/);
+          const h2 = line.match(/^##\s+(.+)$/);
+          const h3 = line.match(/^###\s+(.+)$/);
+          if (h1 || h2 || h3) {
+            flush();
+            const text = (h1 || h2 || h3)[1];
+            const level = h1 ? 1 : h2 ? 2 : 3;
+            current = { level, text, id: slugify(text + '-' + sectionIndex), body: [] };
+            sectionIndex++;
+            continue;
+          }
+          if (current) current.body.push(line);
+          buffer.push(line);
+        }
+        flush();
+        return result;
+      }
+
+      function renderBody(lines) {
         let html = '';
         let inList = false;
         let listType = null;
@@ -508,171 +603,158 @@
             listType = null;
           }
         }
-
         function closeBlockquote() {
-          if (inBlockquote) {
-            html += '</blockquote>';
-            inBlockquote = false;
-          }
-        }
-
-        function inline(s) {
-          return s
-            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-            .replace(/\*(.+?)\*/g, '<em>$1</em>')
-            .replace(/`([^`]+)`/g, '<code>$1</code>');
+          if (inBlockquote) { html += '</blockquote>'; inBlockquote = false; }
         }
 
         for (let line of lines) {
-          if (line.trim() === '---') {
-            closeList();
-            closeBlockquote();
-            html += '<hr>';
-            continue;
-          }
-
-          const h1 = line.match(/^#\s+(.+)$/);
-          const h2 = line.match(/^##\s+(.+)$/);
-          const h3 = line.match(/^###\s+(.+)$/);
-          const ul = line.match(/^(\s*)[-*]\s+(.+)$/);
-          const ol = line.match(/^(\s*)\d+\.\s+(.+)$/);
+          if (line.trim() === '---') { closeList(); closeBlockquote(); html += '<hr>'; continue; }
           const bq = line.match(/^>\s*(.*)$/);
-
-          if (h1 || h2 || h3) {
-            closeList();
-            closeBlockquote();
-            const text = (h1 || h2 || h3)[1];
-            const level = h1 ? 1 : h2 ? 2 : 3;
-            const id = slugify(text);
-            headings.push({ level, text, id });
-            html += `<h${level} id="${id}" class="soul-text-heading scroll-mt-24">${inline(escapeHtml(text))}</h${level}>`;
-            continue;
-          }
-
-          if (bq) {
-            closeList();
-            if (!inBlockquote) {
-              html += '<blockquote>';
-              inBlockquote = true;
-            }
-            html += `<p>${inline(escapeHtml(bq[1]))}</p>`;
-            continue;
-          }
-
+          if (bq) { closeList(); if (!inBlockquote) { html += '<blockquote>'; inBlockquote = true; } html += `<p>${inline(escapeHtml(bq[1]))}</p>`; continue; }
           closeBlockquote();
-
-          if (ul) {
-            const indent = ul[1].length;
-            const itemHtml = `<li>${inline(escapeHtml(ul[2]))}</li>`;
-            if (!inList) {
-              html += '<ul>';
-              inList = true;
-              listType = 'ul';
-            }
-            html += itemHtml;
-            continue;
-          }
-
-          if (ol) {
-            const itemHtml = `<li>${inline(escapeHtml(ol[2]))}</li>`;
-            if (!inList) {
-              html += '<ol>';
-              inList = true;
-              listType = 'ol';
-            }
-            html += itemHtml;
-            continue;
-          }
-
+          const ul = line.match(/^\s*[-*]\s+(.+)$/);
+          const ol = line.match(/^\s*\d+\.\s+(.+)$/);
+          if (ul) { if (!inList) { html += '<ul>'; inList = true; listType = 'ul'; } html += `<li>${inline(escapeHtml(ul[1]))}</li>`; continue; }
+          if (ol) { if (!inList) { html += '<ol>'; inList = true; listType = 'ol'; } html += `<li>${inline(escapeHtml(ol[1]))}</li>`; continue; }
           closeList();
-
-          if (line.trim() === '') {
-            html += '<br>';
-          } else {
-            html += `<p>${inline(escapeHtml(line))}</p>`;
-          }
+          if (line.trim() === '') { html += '<br>'; }
+          else { html += `<p>${inline(escapeHtml(line))}</p>`; }
         }
-
-        closeList();
-        closeBlockquote();
+        closeList(); closeBlockquote();
         return html;
       }
 
+      function excerpt(lines, max = 80) {
+        const text = lines.join(' ').replace(/\*\*|\*|`/g, '').trim();
+        if (!text) return '（本节为章节标题）';
+        return text.length > max ? text.slice(0, max) + '…' : text;
+      }
+
+      function wordCount(lines) {
+        return lines.join('').replace(/\s/g, '').length;
+      }
+
+      function renderCards(filter = '') {
+        const q = filter.trim().toLowerCase();
+        const filtered = q ? sections.filter(s => s.text.toLowerCase().includes(q) || s.raw.toLowerCase().includes(q)) : sections;
+        if (!filtered.length) {
+          gridEl.innerHTML = `<div class="col-span-full soul-glass rounded-[var(--soul-radius-large)] p-10 text-center text-[var(--soul-muted-foreground)]">没有找到与“${escapeHtml(q)}”相关的卡片</div>`;
+          return;
+        }
+        gridEl.innerHTML = filtered.map((s, i) => `
+          <article class="source-card soul-glass rounded-[var(--soul-radius-large)] p-6 flex flex-col h-full cursor-pointer group soul-animate-fade-up" style="animation-delay: ${Math.min(i * 0.05, 0.5)}s" data-index="${sections.indexOf(s)}" data-id="${s.id}">
+            <div class="flex items-start justify-between gap-3 mb-3">
+              <span class="text-[10px] soul-text-label tracking-[0.15em] text-[var(--soul-primary)]">SECTION ${String(sections.indexOf(s) + 1).padStart(2, '0')}</span>
+              <span class="text-xs text-[var(--soul-muted-foreground)]">${wordCount(s.body)} 字</span>
+            </div>
+            <h3 class="soul-text-heading text-lg mb-3 group-hover:text-[var(--soul-primary)] transition-colors line-clamp-2">${escapeHtml(s.text)}</h3>
+            <p class="text-sm text-[var(--soul-muted-foreground)] mb-5 flex-1 line-clamp-3">${escapeHtml(excerpt(s.body))}</p>
+            <div class="flex items-center justify-between pt-4 border-t border-[var(--soul-border)]">
+              <span class="text-xs text-[var(--soul-muted-foreground)]">${s.level === 1 ? '一级章节' : s.level === 2 ? '二级章节' : '三级章节'}</span>
+              <span class="inline-flex items-center gap-1 text-sm text-[var(--soul-primary)] group-hover:translate-x-1 transition-transform">
+                阅读 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </span>
+            </div>
+          </article>
+        `).join('');
+
+        gridEl.querySelectorAll('.source-card').forEach(card => {
+          card.addEventListener('click', () => openModal(parseInt(card.dataset.index, 10)));
+        });
+      }
+
       function buildToc() {
-        if (!headings.length) return;
+        if (!sections.length) return;
         let html = '';
-        for (const h of headings) {
-          const indent = (h.level - 1) * 12;
-          html += `<a href="#${h.id}" class="toc-link block text-[var(--soul-muted-foreground)] hover:text-[var(--soul-primary)]" style="padding-left:${indent}px">${escapeHtml(h.text)}</a>`;
+        for (const s of sections) {
+          const indent = (s.level - 1) * 12;
+          html += `<a href="#${s.id}" class="toc-link block text-[var(--soul-muted-foreground)] hover:text-[var(--soul-primary)]" style="padding-left:${indent}px" data-id="${s.id}">${escapeHtml(s.text)}</a>`;
         }
         tocEl.innerHTML = html;
+        tocEl.querySelectorAll('a').forEach(a => {
+          a.addEventListener('click', e => {
+            e.preventDefault();
+            const idx = sections.findIndex(s => s.id === a.dataset.id);
+            if (idx >= 0) openModal(idx);
+          });
+        });
       }
 
-      function highlightToc() {
-        const links = tocEl.querySelectorAll('a');
-        let current = null;
-        for (const h of headings) {
-          const el = document.getElementById(h.id);
-          if (el) {
-            const rect = el.getBoundingClientRect();
-            if (rect.top <= 120) current = h.id;
-          }
-        }
-        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+      function updateStats() {
+        statsEl.innerHTML = `
+          <span class="soul-glass px-3 py-1.5 rounded-full text-xs text-[var(--soul-muted-foreground)]">${sections.length} 张卡片</span>
+          <span class="soul-glass px-3 py-1.5 rounded-full text-xs text-[var(--soul-muted-foreground)]">${sections.reduce((a, s) => a + wordCount(s.body), 0).toLocaleString()} 字</span>
+          <span class="soul-glass px-3 py-1.5 rounded-full text-xs text-[var(--soul-muted-foreground)]">点击卡片可阅读 / 分享</span>
+        `;
       }
+
+      function openModal(index) {
+        if (index < 0 || index >= sections.length) return;
+        currentIndex = index;
+        const s = sections[index];
+        modalTitle.textContent = s.text;
+        modalMeta.textContent = `SECTION ${String(index + 1).padStart(2, '0')} · ${wordCount(s.body)} 字`;
+        modalBody.innerHTML = renderBody(s.body);
+        modalCounter.textContent = `${index + 1} / ${sections.length}`;
+        modal.classList.remove('hidden');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+        history.replaceState(null, '', '#' + s.id);
+      }
+
+      function closeModal() {
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+        currentIndex = -1;
+        history.replaceState(null, '', location.pathname);
+      }
+
+      async function shareCurrent() {
+        if (currentIndex < 0) return;
+        const s = sections[currentIndex];
+        const url = location.origin + location.pathname + '#' + s.id;
+        const data = { title: s.text + ' · 小九灵魂说明书', text: excerpt(s.body, 120), url };
+        try {
+          if (navigator.share) { await navigator.share(data); }
+          else { await navigator.clipboard.writeText(url); alert('链接已复制：' + url); }
+        } catch (e) {
+          await navigator.clipboard.writeText(url).catch(() => {});
+        }
+      }
+
+      document.getElementById('btn-close').addEventListener('click', closeModal);
+      modalBackdrop.addEventListener('click', closeModal);
+      document.getElementById('btn-prev').addEventListener('click', () => openModal(currentIndex - 1));
+      document.getElementById('btn-next').addEventListener('click', () => openModal(currentIndex + 1));
+      document.getElementById('btn-prev-mobile').addEventListener('click', () => openModal(currentIndex - 1));
+      document.getElementById('btn-next-mobile').addEventListener('click', () => openModal(currentIndex + 1));
+      document.getElementById('btn-share').addEventListener('click', shareCurrent);
+
+      document.addEventListener('keydown', e => {
+        if (modal.classList.contains('hidden')) return;
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') openModal(currentIndex - 1);
+        if (e.key === 'ArrowRight') openModal(currentIndex + 1);
+      });
 
       fetch('../assets/soul-manual.md')
-        .then(r => {
-          if (!r.ok) throw new Error('无法加载原文');
-          return r.text();
-        })
+        .then(r => { if (!r.ok) throw new Error('无法加载原文'); return r.text(); })
         .then(md => {
-          contentEl.innerHTML = renderMarkdown(md);
+          sections = parseMarkdown(md);
+          updateStats();
           buildToc();
-          window.addEventListener('scroll', highlightToc, { passive: true });
-          highlightToc();
-
-          if (searchInput) {
-            searchInput.addEventListener('input', (e) => {
-              const q = e.target.value.trim().toLowerCase();
-              if (!q) {
-                contentEl.querySelectorAll('mark').forEach(m => {
-                  const parent = m.parentNode;
-                  parent.replaceChild(document.createTextNode(m.textContent), m);
-                  parent.normalize();
-                });
-                return;
-              }
-              const walker = document.createTreeWalker(contentEl, NodeFilter.SHOW_TEXT);
-              const nodes = [];
-              while (walker.nextNode()) nodes.push(walker.currentNode);
-              for (const node of nodes) {
-                const text = node.textContent;
-                if (text.toLowerCase().includes(q)) {
-                  const parts = text.split(new RegExp(`(${escapeRegExp(q)})`, 'ig'));
-                  const frag = document.createDocumentFragment();
-                  for (const part of parts) {
-                    if (part.toLowerCase() === q) {
-                      const mark = document.createElement('mark');
-                      mark.className = 'bg-[var(--soul-primary-200)] text-[var(--soul-primary-900)] rounded px-0.5';
-                      mark.textContent = part;
-                      frag.appendChild(mark);
-                    } else {
-                      frag.appendChild(document.createTextNode(part));
-                    }
-                  }
-                  node.parentNode.replaceChild(frag, node);
-                }
-              }
-            });
-          }
+          renderCards();
+          const hash = location.hash.replace('#', '');
+          const idx = sections.findIndex(s => s.id === hash);
+          if (idx >= 0) openModal(idx);
         })
         .catch(err => {
-          contentEl.innerHTML = `<div class="text-[var(--soul-state-error)]">加载原文失败：${escapeHtml(err.message)}</div>`;
+          gridEl.innerHTML = `<div class="col-span-full soul-glass rounded-[var(--soul-radius-large)] p-10 text-center text-[var(--soul-state-error)]">加载原文失败：${escapeHtml(err.message)}</div>`;
         });
 
-      function escapeRegExp(s) {
-        return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      if (searchInput) {
+        searchInput.addEventListener('input', e => renderCards(e.target.value));
       }
     })();
   </script>
@@ -720,7 +802,33 @@
       border-top: 1px solid var(--soul-border);
       margin: 2rem 0;
     }
+    .source-card { transition: transform var(--soul-duration-normal) var(--soul-ease-out), box-shadow var(--soul-duration-normal) var(--soul-ease-out); }
+    .source-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(126, 110, 227, 0.1); }
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .prose h1 { font-size: 2rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+    .prose h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .prose h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .prose p { margin-bottom: 1rem; }
+    .prose ul, .prose ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+    .prose li { margin-bottom: 0.35rem; }
+    .prose blockquote {
+      border-left: 3px solid var(--soul-primary-300);
+      padding-left: 1rem;
+      margin: 1.25rem 0;
+      color: var(--soul-muted-foreground);
+      font-style: italic;
+    }
+    .prose code {
+      background: var(--soul-muted);
+      padding: 0.15rem 0.35rem;
+      border-radius: var(--soul-radius-small);
+      font-family: var(--soul-font-mono);
+      font-size: 0.9em;
+    }
+    .prose hr { border: 0; border-top: 1px solid var(--soul-border); margin: 2rem 0; }
     .reader-scroll::-webkit-scrollbar { width: 6px; }
+    .reader-scroll::-webkit-scrollbar-thumb { background: var(--soul-border); border-radius: 3px; }
     .reader-scroll::-webkit-scrollbar-thumb {
       background: var(--soul-border);
       border-radius: 3px;
