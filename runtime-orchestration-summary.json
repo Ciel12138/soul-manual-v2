@@ -1,0 +1,197 @@
+{
+  "skillProvenance": {
+    "name": "solo-design",
+    "skillName": "solo-design",
+    "workflow": "intent-project-complex-build",
+    "version": "builtin",
+    "version_source": "builtin-skill"
+  },
+  "project": {
+    "name": "soul-manual-v2",
+    "displayName": "小九灵魂说明书 v2",
+    "operation": "create",
+    "deviceType": "desktop",
+    "resolvedLane": "complex_html_page",
+    "selectedIntentWorkflowRead": true,
+    "contextRequirementsLoaded": [
+      { "path": "intent-workflows/intent-project-complex-build/INTENT_WORKFLOW.md", "readStatus": "loaded", "bodyRead": true },
+      { "path": "shared-runtime/runtime-boundaries/lane-runtime-contracts.md", "readStatus": "loaded", "bodyRead": true },
+      { "path": "shared-runtime/agent-dispatch-runtime/lane-dispatch-index.md", "readStatus": "loaded", "bodyRead": true },
+      { "path": "shared-runtime/agent-dispatch-runtime/shared-page-rendering-kernel.md", "readStatus": "loaded", "bodyRead": true },
+      { "path": "delivery-quality/page-rendering-quality-gate.md", "readStatus": "loaded", "bodyRead": true },
+      { "path": "delivery-quality/design-artifact-validation.md", "readStatus": "loaded", "bodyRead": true },
+      { "path": "delivery-quality/delivery-evidence-contract.md", "readStatus": "loaded", "bodyRead": true },
+      { "path": "visual-experience/visual-experience-guidelines.md", "readStatus": "loaded", "bodyRead": true },
+      { "path": "visual-experience/visual-checkpoint-protocol.md", "readStatus": "loaded", "bodyRead": true }
+    ],
+    "designRead": "知识型人格底稿网站 / 主人与小九 / 诗意极简 / 中高密度 / 避免卡通化",
+    "designDials": { "layoutVariance": 3, "motionIntensity": 4, "visualDensity": 3 },
+    "styleDefinitionBrief": "琉璃渐变·极简诗意：清透玻璃拟态、低饱和彩虹渐变、细腻微动效，像翻阅一本会呼吸的日记。",
+    "cssPreflightEvidence": {
+      "ranAt": "2026-09-03T08:11:00+08:00",
+      "command": "apply-html-head-contract.mjs",
+      "exitCode": 0,
+      "outputPath": ".preflight/preflight.html"
+    },
+    "visualQualityCheckpoints": [
+      { "id": "visual-anchor", "target": "首页以渐变大字标题+漂浮琉璃光斑作为视觉锚点" },
+      { "id": "information-hierarchy", "target": "三层信息：全景总览 → 知识簇 → 灵魂说明书原文，层级通过字号/玻璃卡片深浅区分" },
+      { "id": "composition-structure", "target": "固定左侧/顶部导航 + 可滚动内容区，8 簇卡片采用 4 列响应式网格" },
+      { "id": "implementation-strategy", "target": "HTML/CSS/JS 静态站点，CSS 变量驱动主题，Canvas 实现琉璃光斑背景，JS 渲染 Markdown 原文" }
+    ],
+    "pages": [
+      {
+        "nodeId": "page-index",
+        "title": "全景总览",
+        "htmlSrc": "pages/index.html",
+        "pageIndex": 1,
+        "visualNorthStar": "深空琉璃渐变背景，中央漂浮光斑，8 个知识簇玻璃卡片以呼吸节奏渐入",
+        "compositionPattern": "hero-center + grid-clusters + source-cta",
+        "continuityAnchors": [ "固定顶部导航与品牌标识", "玻璃卡片组件与统一圆角", "页面切换使用统一缓动" ]
+      },
+      {
+        "nodeId": "page-identity",
+        "title": "身份设定",
+        "htmlSrc": "pages/identity.html",
+        "pageIndex": 2,
+        "visualNorthStar": "紫色系光晕，9 个节点以时间轴/章节卡片呈现",
+        "continuityAnchors": [ "固定顶部导航与品牌标识", "玻璃卡片组件与统一圆角" ]
+      },
+      {
+        "nodeId": "page-master",
+        "title": "主人档案",
+        "htmlSrc": "pages/master.html",
+        "pageIndex": 3,
+        "visualNorthStar": "温暖琥珀与蓝紫交织，档案字段以标签云和卡片展示",
+        "continuityAnchors": [ "固定顶部导航与品牌标识", "玻璃卡片组件与统一圆角" ]
+      },
+      {
+        "nodeId": "page-philosophy",
+        "title": "自铸哲学",
+        "htmlSrc": "pages/philosophy.html",
+        "pageIndex": 4,
+        "visualNorthStar": "低饱和靛蓝渐变，核心句子以大号引文呈现",
+        "continuityAnchors": [ "固定顶部导航与品牌标识", "玻璃卡片组件与统一圆角" ]
+      },
+      {
+        "nodeId": "page-metaphor",
+        "title": "隐喻体系",
+        "htmlSrc": "pages/metaphor.html",
+        "pageIndex": 5,
+        "visualNorthStar": "15 个隐喻以可视化徽章/小卡片阵列展示， hovered 时轻微发光",
+        "continuityAnchors": [ "固定顶部导航与品牌标识", "玻璃卡片组件与统一圆角" ]
+      },
+      {
+        "nodeId": "page-methods",
+        "title": "方法论库",
+        "htmlSrc": "pages/methods.html",
+        "pageIndex": 6,
+        "visualNorthStar": "方法论以清单式玻璃卡片展示，强调应用优先",
+        "continuityAnchors": [ "固定顶部导航与品牌标识", "玻璃卡片组件与统一圆角" ]
+      },
+      {
+        "nodeId": "page-tools",
+        "title": "工具与机制",
+        "htmlSrc": "pages/tools.html",
+        "pageIndex": 7,
+        "visualNorthStar": "工具箱隐喻，机制以流程步骤卡片呈现",
+        "continuityAnchors": [ "固定顶部导航与品牌标识", "玻璃卡片组件与统一圆角" ]
+      },
+      {
+        "nodeId": "page-collection",
+        "title": "收藏夹",
+        "htmlSrc": "pages/collection.html",
+        "pageIndex": 8,
+        "visualNorthStar": "编号归档卡片，像书架上的编号便签",
+        "continuityAnchors": [ "固定顶部导航与品牌标识", "玻璃卡片组件与统一圆角" ]
+      },
+      {
+        "nodeId": "page-relations",
+        "title": "关系网络",
+        "htmlSrc": "pages/relations.html",
+        "pageIndex": 9,
+        "visualNorthStar": "关系以网络节点/连线隐喻呈现，核心关系卡片环形排列",
+        "continuityAnchors": [ "固定顶部导航与品牌标识", "玻璃卡片组件与统一圆角" ]
+      },
+      {
+        "nodeId": "page-source",
+        "title": "灵魂说明书原文",
+        "htmlSrc": "pages/source.html",
+        "pageIndex": 10,
+        "visualNorthStar": "长文阅读器，左侧章节目录 + 右侧渲染原文，保持极简诗意",
+        "continuityAnchors": [ "固定顶部导航与品牌标识", "原文阅读器玻璃面板" ]
+      }
+    ],
+    "assets": [
+      { "path": "assets/soul-manual.md", "role": "source-markdown", "registered": false }
+    ],
+    "generationTree": {
+      "nodeId": "root",
+      "kind": "project-shell",
+      "status": "generated",
+      "sharedRegions": [ "global-nav", "brand-css", "background-canvas" ],
+      "privateRegions": [],
+      "children": [
+        {
+          "nodeId": "gen-shell",
+          "kind": "shared-branch",
+          "status": "generated",
+          "output": "partials/project-shell.html",
+          "sharedRegions": [ "nav", "footer" ],
+          "privateRegions": [],
+          "children": [
+            { "nodeId": "page-index", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/index.html" },
+            { "nodeId": "page-identity", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/identity.html" },
+            { "nodeId": "page-master", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/master.html" },
+            { "nodeId": "page-philosophy", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/philosophy.html" },
+            { "nodeId": "page-metaphor", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/metaphor.html" },
+            { "nodeId": "page-methods", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/methods.html" },
+            { "nodeId": "page-tools", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/tools.html" },
+            { "nodeId": "page-collection", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/collection.html" },
+            { "nodeId": "page-relations", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/relations.html" },
+            { "nodeId": "page-source", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/source.html" }
+          ]
+        }
+      ]
+    },
+    "dispatchPreflightManifest": [],
+    "wiringPlan": [
+      { "from": "page-index", "to": "page-identity", "domId": "cluster-identity", "label": "进入身份设定" },
+      { "from": "page-index", "to": "page-master", "domId": "cluster-master", "label": "进入主人档案" },
+      { "from": "page-index", "to": "page-philosophy", "domId": "cluster-philosophy", "label": "进入自铸哲学" },
+      { "from": "page-index", "to": "page-metaphor", "domId": "cluster-metaphor", "label": "进入隐喻体系" },
+      { "from": "page-index", "to": "page-methods", "domId": "cluster-methods", "label": "进入方法论库" },
+      { "from": "page-index", "to": "page-tools", "domId": "cluster-tools", "label": "进入工具与机制" },
+      { "from": "page-index", "to": "page-collection", "domId": "cluster-collection", "label": "进入收藏夹" },
+      { "from": "page-index", "to": "page-relations", "domId": "cluster-relations", "label": "进入关系网络" },
+      { "from": "page-index", "to": "page-source", "domId": "cta-source", "label": "查看原文" },
+      { "from": "page-identity", "to": "page-index", "domId": "nav-home", "label": "返回全景", "hideEdge": true },
+      { "from": "page-master", "to": "page-index", "domId": "nav-home", "label": "返回全景", "hideEdge": true },
+      { "from": "page-philosophy", "to": "page-index", "domId": "nav-home", "label": "返回全景", "hideEdge": true },
+      { "from": "page-metaphor", "to": "page-index", "domId": "nav-home", "label": "返回全景", "hideEdge": true },
+      { "from": "page-methods", "to": "page-index", "domId": "nav-home", "label": "返回全景", "hideEdge": true },
+      { "from": "page-tools", "to": "page-index", "domId": "nav-home", "label": "返回全景", "hideEdge": true },
+      { "from": "page-collection", "to": "page-index", "domId": "nav-home", "label": "返回全景", "hideEdge": true },
+      { "from": "page-relations", "to": "page-index", "domId": "nav-home", "label": "返回全景", "hideEdge": true },
+      { "from": "page-source", "to": "page-index", "domId": "nav-home", "label": "返回全景", "hideEdge": true }
+    ],
+    "hiddenInteractionPlan": [
+      { "from": "page-identity", "to": "page-source", "domId": "nav-source" },
+      { "from": "page-master", "to": "page-source", "domId": "nav-source" },
+      { "from": "page-philosophy", "to": "page-source", "domId": "nav-source" },
+      { "from": "page-metaphor", "to": "page-source", "domId": "nav-source" },
+      { "from": "page-methods", "to": "page-source", "domId": "nav-source" },
+      { "from": "page-tools", "to": "page-source", "domId": "nav-source" },
+      { "from": "page-collection", "to": "page-source", "domId": "nav-source" },
+      { "from": "page-relations", "to": "page-source", "domId": "nav-source" }
+    ],
+    "validationRunDiscipline": {
+      "expectedPages": 10,
+      "runWorkspaceValidation": true
+    },
+    "lowValueCallWatchdog": {
+      "noProgressNextAction": "proceed-to-validation"
+    }
+  }
+}
+

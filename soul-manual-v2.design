@@ -1,0 +1,363 @@
+{
+  "data": [
+    {
+      "id": "page-index",
+      "title": "全景总览",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1788394269000,
+      "canvasData": {
+        "x": 0,
+        "y": 0,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1709,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-038fac29",
+          "measuredAt": 1788396044497
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/index.html",
+        "interactions": [
+          {
+            "domId": "cluster-identity",
+            "targetPageId": "page-identity",
+            "transitionLabel": "进入身份设定"
+          },
+          {
+            "domId": "cluster-master",
+            "targetPageId": "page-master",
+            "transitionLabel": "进入主人档案"
+          },
+          {
+            "domId": "cluster-philosophy",
+            "targetPageId": "page-philosophy",
+            "transitionLabel": "进入自铸哲学"
+          },
+          {
+            "domId": "cluster-metaphor",
+            "targetPageId": "page-metaphor",
+            "transitionLabel": "进入隐喻体系"
+          },
+          {
+            "domId": "cluster-methods",
+            "targetPageId": "page-methods",
+            "transitionLabel": "进入方法论库"
+          },
+          {
+            "domId": "cluster-tools",
+            "targetPageId": "page-tools",
+            "transitionLabel": "进入工具与机制"
+          },
+          {
+            "domId": "cluster-collection",
+            "targetPageId": "page-collection",
+            "transitionLabel": "进入收藏夹"
+          },
+          {
+            "domId": "cluster-relations",
+            "targetPageId": "page-relations",
+            "transitionLabel": "进入关系网络"
+          },
+          {
+            "domId": "cta-source",
+            "targetPageId": "page-source",
+            "transitionLabel": "查看灵魂说明书原文",
+            "hideEdge": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-identity",
+      "title": "身份设定",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1788394269000,
+      "canvasData": {
+        "x": 480,
+        "y": 0,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1189,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-4bc14da3",
+          "measuredAt": 1788396044497
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/identity.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回全景"
+          },
+          {
+            "domId": "nav-source",
+            "targetPageId": "page-source",
+            "hideEdge": true,
+            "transitionLabel": "查看原文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-master",
+      "title": "主人档案",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1788394269000,
+      "canvasData": {
+        "x": 480,
+        "y": 373,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1169,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-e4fa92e3",
+          "measuredAt": 1788396044497
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/master.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回全景"
+          },
+          {
+            "domId": "nav-source",
+            "targetPageId": "page-source",
+            "hideEdge": true,
+            "transitionLabel": "查看原文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-philosophy",
+      "title": "自铸哲学",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1788394269000,
+      "canvasData": {
+        "x": 480,
+        "y": 746,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1169,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-2c6f45d5",
+          "measuredAt": 1788396044497
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/philosophy.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回全景"
+          },
+          {
+            "domId": "nav-source",
+            "targetPageId": "page-source",
+            "hideEdge": true,
+            "transitionLabel": "查看原文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-metaphor",
+      "title": "隐喻体系",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1788394269000,
+      "canvasData": {
+        "x": 480,
+        "y": 1119,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1464,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-a9840569",
+          "measuredAt": 1788396044497
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/metaphor.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回全景"
+          },
+          {
+            "domId": "nav-source",
+            "targetPageId": "page-source",
+            "hideEdge": true,
+            "transitionLabel": "查看原文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-methods",
+      "title": "方法论库",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1788394269000,
+      "canvasData": {
+        "x": 480,
+        "y": 1492,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/methods.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回全景"
+          },
+          {
+            "domId": "nav-source",
+            "targetPageId": "page-source",
+            "hideEdge": true,
+            "transitionLabel": "查看原文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-tools",
+      "title": "工具与机制",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1788394269000,
+      "canvasData": {
+        "x": 480,
+        "y": 1865,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/tools.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回全景"
+          },
+          {
+            "domId": "nav-source",
+            "targetPageId": "page-source",
+            "hideEdge": true,
+            "transitionLabel": "查看原文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-collection",
+      "title": "收藏夹",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1788394269000,
+      "canvasData": {
+        "x": 480,
+        "y": 2238,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/collection.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回全景"
+          },
+          {
+            "domId": "nav-source",
+            "targetPageId": "page-source",
+            "hideEdge": true,
+            "transitionLabel": "查看原文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-relations",
+      "title": "关系网络",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1788394269000,
+      "canvasData": {
+        "x": 480,
+        "y": 2611,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/relations.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回全景"
+          },
+          {
+            "domId": "nav-source",
+            "targetPageId": "page-source",
+            "hideEdge": true,
+            "transitionLabel": "查看原文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-source",
+      "title": "灵魂说明书原文",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1788394269000,
+      "canvasData": {
+        "x": 0,
+        "y": 2984,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/source.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回全景"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": true,
+    "deviceType": "desktop",
+    "projectName": "小九灵魂说明书 v2",
+    "designLibrary": null
+  }
+}

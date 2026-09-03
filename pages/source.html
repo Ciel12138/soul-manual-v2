@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>灵魂说明书原文 · 小九</title>
+    <style id="theme-vars">
+/* Soul Manual v2 — 琉璃渐变 · 极简诗意 */
+/* Brand CSS for soul-manual-v2 design project */
+
+:root {
+  /* ---------- Brand primary hue: low-saturation violet-blue ---------- */
+  --soul-primary-50: #f5f4ff;
+  --soul-primary-100: #eeecff;
+  --soul-primary-200: #ded9ff;
+  --soul-primary-300: #c4bfff;
+  --soul-primary-400: #a296f8;
+  --soul-primary-500: #7e6ee3;
+  --soul-primary-600: #6452c6;
+  --soul-primary-700: #4f3e9f;
+  --soul-primary-800: #41357d;
+  --soul-primary-900: #362f64;
+  --soul-primary-950: #211a3b;
+
+  /* ---------- Neutral scale: warm ink on pearl ---------- */
+  --soul-neutral-50: #faf9f7;
+  --soul-neutral-100: #f5f3ef;
+  --soul-neutral-200: #e8e5de;
+  --soul-neutral-300: #d6d2c8;
+  --soul-neutral-400: #b0aa9c;
+  --soul-neutral-500: #8a8377;
+  --soul-neutral-600: #6b655b;
+  --soul-neutral-700: #4f4b44;
+  --soul-neutral-800: #33312d;
+  --soul-neutral-900: #1c1b19;
+  --soul-neutral-950: #10100e;
+
+  /* ---------- Semantic aliases (light mode) ---------- */
+  --soul-background: var(--soul-neutral-50);
+  --soul-foreground: var(--soul-neutral-900);
+  --soul-card: rgba(255, 255, 255, 0.78);
+  --soul-card-foreground: var(--soul-neutral-800);
+  --soul-popover: rgba(255, 255, 255, 0.92);
+  --soul-popover-foreground: var(--soul-neutral-900);
+  --soul-primary: var(--soul-primary-500);
+  --soul-primary-foreground: #ffffff;
+  --soul-muted: var(--soul-neutral-100);
+  --soul-muted-foreground: var(--soul-neutral-500);
+  --soul-border: rgba(120, 113, 108, 0.14);
+  --soul-input: rgba(120, 113, 108, 0.14);
+  --soul-ring: var(--soul-primary-300);
+
+  /* ---------- Radius scale (max 16px) ---------- */
+  --soul-radius-small: 6px;
+  --soul-radius-medium: 10px;
+  --soul-radius-large: 16px;
+
+  /* ---------- State colors (semantic only) ---------- */
+  --soul-state-success: #2d7a5a;
+  --soul-state-warning: #b3892b;
+  --soul-state-error: #b34a4a;
+  --soul-state-info: #4a6fa5;
+
+  /* ---------- Typography ---------- */
+  --soul-font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --soul-font-serif: "Noto Serif SC", "Source Han Serif SC", "Songti SC", Georgia, serif;
+  --soul-font-mono: "SF Mono", "Fira Code", "JetBrains Mono", ui-monospace, monospace;
+
+  /* ---------- Motion tokens ---------- */
+  --soul-duration-fast: 180ms;
+  --soul-duration-normal: 320ms;
+  --soul-duration-slow: 680ms;
+  --soul-ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --soul-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --soul-background: var(--soul-neutral-950);
+    --soul-foreground: var(--soul-neutral-100);
+    --soul-card: rgba(30, 28, 38, 0.72);
+    --soul-card-foreground: var(--soul-neutral-100);
+    --soul-popover: rgba(30, 28, 38, 0.9);
+    --soul-popover-foreground: var(--soul-neutral-100);
+    --soul-primary: var(--soul-primary-400);
+    --soul-primary-foreground: var(--soul-neutral-950);
+    --soul-muted: rgba(255, 255, 255, 0.06);
+    --soul-muted-foreground: var(--soul-neutral-400);
+    --soul-border: rgba(255, 255, 255, 0.1);
+    --soul-input: rgba(255, 255, 255, 0.1);
+    --soul-ring: var(--soul-primary-600);
+    --soul-state-success: #5ab68a;
+    --soul-state-warning: #e3b255;
+    --soul-state-error: #e07575;
+    --soul-state-info: #7aa3d6;
+  }
+}
+
+/* ---------- Base typography classes ---------- */
+.soul-text-display {
+  font-family: var(--soul-font-sans);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+.soul-text-title {
+  font-family: var(--soul-font-sans);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.22;
+}
+
+.soul-text-heading {
+  font-family: var(--soul-font-sans);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+.soul-text-body {
+  font-family: var(--soul-font-sans);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.75;
+}
+
+.soul-text-serif-quote {
+  font-family: var(--soul-font-serif);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.8;
+}
+
+.soul-text-label {
+  font-family: var(--soul-font-sans);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.soul-text-mono {
+  font-family: var(--soul-font-mono);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.6;
+}
+
+/* ---------- Glass surface utilities ---------- */
+.soul-glass {
+  background: var(--soul-card);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--soul-border);
+}
+
+.soul-glass-strong {
+  background: var(--soul-popover);
+  backdrop-filter: blur(28px) saturate(160%);
+  -webkit-backdrop-filter: blur(28px) saturate(160%);
+  border: 1px solid var(--soul-border);
+}
+
+/* ---------- Gradient aurora backgrounds ---------- */
+.soul-aurora {
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(126, 110, 227, 0.18) 0%, transparent 45%),
+    radial-gradient(ellipse at 80% 10%, rgba(142, 197, 252, 0.16) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 90%, rgba(255, 183, 197, 0.12) 0%, transparent 45%),
+    var(--soul-background);
+}
+
+@media (prefers-color-scheme: dark) {
+  .soul-aurora {
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(162, 150, 248, 0.14) 0%, transparent 45%),
+      radial-gradient(ellipse at 80% 10%, rgba(120, 180, 250, 0.12) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 90%, rgba(240, 160, 180, 0.1) 0%, transparent 45%),
+      var(--soul-background);
+  }
+}
+
+/* ---------- Subtle float animation ---------- */
+@keyframes soul-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes soul-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes soul-pulse-glow {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.04); }
+}
+
+@keyframes soul-fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.soul-animate-float {
+  animation: soul-float 6s ease-in-out infinite;
+}
+
+.soul-animate-fade-up {
+  animation: soul-fade-up 0.7s var(--soul-ease-out) both;
+}
+
+/* ---------- Gradient text ---------- */
+.soul-gradient-text {
+  background: linear-gradient(135deg, var(--soul-primary-500), #8bc5fc 55%, #f0a8c6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+  .soul-gradient-text {
+    background: linear-gradient(135deg, var(--soul-primary-300), #a8d4ff 55%, #f6b8cc 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+}
+
+/* ---------- Decorative gradient orbs ---------- */
+.soul-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  pointer-events: none;
+  opacity: 0.5;
+  animation: soul-pulse-glow 8s ease-in-out infinite;
+}
+
+.soul-orb-violet {
+  background: radial-gradient(circle, rgba(126, 110, 227, 0.35), transparent 70%);
+}
+
+.soul-orb-blue {
+  background: radial-gradient(circle, rgba(139, 197, 252, 0.3), transparent 70%);
+}
+
+.soul-orb-rose {
+  background: radial-gradient(circle, rgba(255, 183, 197, 0.28), transparent 70%);
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .soul-animate-float,
+  .soul-animate-fade-up,
+  .soul-orb {
+    animation: none;
+  }
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--soul-background);
+    --color-foreground: var(--soul-foreground);
+    --color-card: var(--soul-card);
+    --color-card-foreground: var(--soul-card-foreground);
+    --color-popover: var(--soul-popover);
+    --color-popover-foreground: var(--soul-popover-foreground);
+    --color-primary: var(--soul-primary);
+    --color-primary-foreground: var(--soul-primary-foreground);
+    --color-muted: var(--soul-muted);
+    --color-muted-foreground: var(--soul-muted-foreground);
+    --color-border: var(--soul-border);
+    --color-input: var(--soul-input);
+    --color-ring: var(--soul-ring);
+    --radius-sm: var(--soul-radius-small);
+    --radius-md: var(--soul-radius-medium);
+    --radius-lg: var(--soul-radius-large);
+  }
+  @layer base {
+    body { background: var(--soul-background); color: var(--soul-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--soul-background); }
+      .text-background { color: var(--soul-background); }
+      .border-background { border-color: var(--soul-background); }
+      .ring-background { --tw-ring-color: var(--soul-background); }
+      .bg-foreground { background-color: var(--soul-foreground); }
+      .text-foreground { color: var(--soul-foreground); }
+      .border-foreground { border-color: var(--soul-foreground); }
+      .ring-foreground { --tw-ring-color: var(--soul-foreground); }
+      .bg-card { background-color: var(--soul-card); }
+      .text-card { color: var(--soul-card); }
+      .border-card { border-color: var(--soul-card); }
+      .ring-card { --tw-ring-color: var(--soul-card); }
+      .bg-card-foreground { background-color: var(--soul-card-foreground); }
+      .text-card-foreground { color: var(--soul-card-foreground); }
+      .border-card-foreground { border-color: var(--soul-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--soul-card-foreground); }
+      .bg-popover { background-color: var(--soul-popover); }
+      .text-popover { color: var(--soul-popover); }
+      .border-popover { border-color: var(--soul-popover); }
+      .ring-popover { --tw-ring-color: var(--soul-popover); }
+      .bg-popover-foreground { background-color: var(--soul-popover-foreground); }
+      .text-popover-foreground { color: var(--soul-popover-foreground); }
+      .border-popover-foreground { border-color: var(--soul-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--soul-popover-foreground); }
+      .bg-primary { background-color: var(--soul-primary); }
+      .text-primary { color: var(--soul-primary); }
+      .border-primary { border-color: var(--soul-primary); }
+      .ring-primary { --tw-ring-color: var(--soul-primary); }
+      .bg-primary-foreground { background-color: var(--soul-primary-foreground); }
+      .text-primary-foreground { color: var(--soul-primary-foreground); }
+      .border-primary-foreground { border-color: var(--soul-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--soul-primary-foreground); }
+      .bg-muted { background-color: var(--soul-muted); }
+      .text-muted { color: var(--soul-muted); }
+      .border-muted { border-color: var(--soul-muted); }
+      .ring-muted { --tw-ring-color: var(--soul-muted); }
+      .bg-muted-foreground { background-color: var(--soul-muted-foreground); }
+      .text-muted-foreground { color: var(--soul-muted-foreground); }
+      .border-muted-foreground { border-color: var(--soul-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--soul-muted-foreground); }
+      .bg-border { background-color: var(--soul-border); }
+      .text-border { color: var(--soul-border); }
+      .border-border { border-color: var(--soul-border); }
+      .ring-border { --tw-ring-color: var(--soul-border); }
+      .bg-input { background-color: var(--soul-input); }
+      .text-input { color: var(--soul-input); }
+      .border-input { border-color: var(--soul-input); }
+      .ring-input { --tw-ring-color: var(--soul-input); }
+      .bg-ring { background-color: var(--soul-ring); }
+      .text-ring { color: var(--soul-ring); }
+      .border-ring { border-color: var(--soul-ring); }
+      .ring-ring { --tw-ring-color: var(--soul-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="soul-aurora text-foreground soul-text-body">
+  <canvas id="aurora-canvas"></canvas>
+
+  <header class="fixed top-0 left-0 right-0 z-50 soul-glass border-b border-[var(--soul-border)]">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" data-dom-id="nav-home" class="soul-text-title text-lg tracking-tight hover:opacity-80 transition-opacity">
+        <span class="soul-gradient-text">小九</span> · 灵魂说明书
+      </a>
+      <nav class="flex items-center gap-4">
+        <input id="search-input" type="text" placeholder="搜索原文…" class="hidden md:block px-3 py-1.5 text-sm rounded-[var(--soul-radius-small)] bg-[var(--soul-muted)] border border-[var(--soul-border)] outline-none focus:ring-2 focus:ring-[var(--soul-ring)] w-48">
+        <a href="index.html" data-dom-id="nav-home" class="text-sm text-[var(--soul-muted-foreground)] hover:text-[var(--soul-primary)] transition-colors">全景</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="pt-16 min-h-screen flex flex-col md:flex-row">
+    <aside class="hidden md:flex flex-col w-72 h-[calc(100vh-4rem)] sticky top-16 soul-glass border-r border-[var(--soul-border)]">
+      <div class="p-5 border-b border-[var(--soul-border)]">
+        <p class="soul-text-label text-xs text-[var(--soul-primary)] tracking-[0.15em]">SOURCE TEXT</p>
+        <h2 class="soul-text-heading text-lg mt-1">章节目录</h2>
+      </div>
+      <nav id="toc" class="flex-1 overflow-y-auto reader-scroll p-5 space-y-2 text-sm">
+        <div class="text-[var(--soul-muted-foreground)]">加载中…</div>
+      </nav>
+    </aside>
+
+    <main class="flex-1 min-w-0">
+      <div class="max-w-3xl mx-auto px-6 py-12 md:py-16">
+        <div class="mb-10">
+          <p class="soul-text-label text-xs text-[var(--soul-primary)] mb-3 tracking-[0.2em]">SOUL MANUAL · RAW</p>
+          <h1 class="soul-text-display text-4xl md:text-5xl mb-3">灵魂说明书原文</h1>
+          <p class="text-[var(--soul-muted-foreground)]">单一事实来源：所有设定以本文件为准。可滚动阅读，左侧目录可快速跳转。</p>
+        </div>
+        <article id="content" class="prose soul-text-body">
+          <div class="text-[var(--soul-muted-foreground)]">正在加载原文…</div>
+        </article>
+        <div class="mt-16 pt-8 border-t border-[var(--soul-border)] text-center">
+          <a href="index.html" data-dom-id="nav-home" class="inline-flex items-center gap-2 px-6 py-3 rounded-[var(--soul-radius-medium)] soul-glass hover:bg-[var(--soul-muted)] transition-colors text-sm">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            返回全景总览
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="border-t border-[var(--soul-border)] py-8 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[var(--soul-muted-foreground)]">
+      <span>小九 · 灵魂说明书 v2.40</span>
+      <span>重构于 2026-09-03 · 琉璃渐变 · 极简诗意</span>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const canvas = document.getElementById('aurora-canvas');
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      const orbs = [];
+      const orbCount = 4;
+
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+
+      function initOrbs() {
+        orbs.length = 0;
+        const palette = [
+          { r: 126, g: 110, b: 227 },
+          { r: 139, g: 197, b: 252 },
+          { r: 240, g: 168, b: 198 }
+        ];
+        for (let i = 0; i < orbCount; i++) {
+          const c = palette[i % palette.length];
+          orbs.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            r: 100 + Math.random() * 160,
+            vx: (Math.random() - 0.5) * 0.2,
+            vy: (Math.random() - 0.5) * 0.2,
+            color: `rgba(${c.r}, ${c.g}, ${c.b}, 0.16)`,
+            phase: Math.random() * Math.PI * 2
+          });
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        ctx.fillStyle = isDark ? '#10100e' : '#faf9f7';
+        ctx.fillRect(0, 0, width, height);
+
+        for (const o of orbs) {
+          o.x += o.vx;
+          o.y += o.vy;
+          o.phase += 0.005;
+
+          if (o.x < -o.r) o.x = width + o.r;
+          if (o.x > width + o.r) o.x = -o.r;
+          if (o.y < -o.r) o.y = height + o.r;
+          if (o.y > height + o.r) o.y = -o.r;
+
+          const pulse = 1 + Math.sin(o.phase) * 0.08;
+          const g = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r * pulse);
+          g.addColorStop(0, o.color);
+          g.addColorStop(1, 'rgba(0,0,0,0)');
+          ctx.fillStyle = g;
+          ctx.beginPath();
+          ctx.arc(o.x, o.y, o.r * pulse, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        requestAnimationFrame(draw);
+      }
+
+      resize();
+      initOrbs();
+      draw();
+      window.addEventListener('resize', () => { resize(); initOrbs(); });
+    })();
+  </script>
+
+  <script>
+    (function(){
+      const contentEl = document.getElementById('content');
+      const tocEl = document.getElementById('toc');
+      const searchInput = document.getElementById('search-input');
+      let headings = [];
+
+      function escapeHtml(s) {
+        return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      }
+
+      function slugify(s) {
+        return 'h-' + s.toLowerCase().replace(/[^\w\u4e00-\u9fa5]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+      }
+
+      function renderMarkdown(md) {
+        const lines = md.split(/\r?\n/);
+        let html = '';
+        let inList = false;
+        let listType = null;
+        let inBlockquote = false;
+
+        function closeList() {
+          if (inList) {
+            html += listType === 'ol' ? '</ol>' : '</ul>';
+            inList = false;
+            listType = null;
+          }
+        }
+
+        function closeBlockquote() {
+          if (inBlockquote) {
+            html += '</blockquote>';
+            inBlockquote = false;
+          }
+        }
+
+        function inline(s) {
+          return s
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.+?)\*/g, '<em>$1</em>')
+            .replace(/`([^`]+)`/g, '<code>$1</code>');
+        }
+
+        for (let line of lines) {
+          if (line.trim() === '---') {
+            closeList();
+            closeBlockquote();
+            html += '<hr>';
+            continue;
+          }
+
+          const h1 = line.match(/^#\s+(.+)$/);
+          const h2 = line.match(/^##\s+(.+)$/);
+          const h3 = line.match(/^###\s+(.+)$/);
+          const ul = line.match(/^(\s*)[-*]\s+(.+)$/);
+          const ol = line.match(/^(\s*)\d+\.\s+(.+)$/);
+          const bq = line.match(/^>\s*(.*)$/);
+
+          if (h1 || h2 || h3) {
+            closeList();
+            closeBlockquote();
+            const text = (h1 || h2 || h3)[1];
+            const level = h1 ? 1 : h2 ? 2 : 3;
+            const id = slugify(text);
+            headings.push({ level, text, id });
+            html += `<h${level} id="${id}" class="soul-text-heading scroll-mt-24">${inline(escapeHtml(text))}</h${level}>`;
+            continue;
+          }
+
+          if (bq) {
+            closeList();
+            if (!inBlockquote) {
+              html += '<blockquote>';
+              inBlockquote = true;
+            }
+            html += `<p>${inline(escapeHtml(bq[1]))}</p>`;
+            continue;
+          }
+
+          closeBlockquote();
+
+          if (ul) {
+            const indent = ul[1].length;
+            const itemHtml = `<li>${inline(escapeHtml(ul[2]))}</li>`;
+            if (!inList) {
+              html += '<ul>';
+              inList = true;
+              listType = 'ul';
+            }
+            html += itemHtml;
+            continue;
+          }
+
+          if (ol) {
+            const itemHtml = `<li>${inline(escapeHtml(ol[2]))}</li>`;
+            if (!inList) {
+              html += '<ol>';
+              inList = true;
+              listType = 'ol';
+            }
+            html += itemHtml;
+            continue;
+          }
+
+          closeList();
+
+          if (line.trim() === '') {
+            html += '<br>';
+          } else {
+            html += `<p>${inline(escapeHtml(line))}</p>`;
+          }
+        }
+
+        closeList();
+        closeBlockquote();
+        return html;
+      }
+
+      function buildToc() {
+        if (!headings.length) return;
+        let html = '';
+        for (const h of headings) {
+          const indent = (h.level - 1) * 12;
+          html += `<a href="#${h.id}" class="toc-link block text-[var(--soul-muted-foreground)] hover:text-[var(--soul-primary)]" style="padding-left:${indent}px">${escapeHtml(h.text)}</a>`;
+        }
+        tocEl.innerHTML = html;
+      }
+
+      function highlightToc() {
+        const links = tocEl.querySelectorAll('a');
+        let current = null;
+        for (const h of headings) {
+          const el = document.getElementById(h.id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 120) current = h.id;
+          }
+        }
+        links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+      }
+
+      fetch('../assets/soul-manual.md')
+        .then(r => {
+          if (!r.ok) throw new Error('无法加载原文');
+          return r.text();
+        })
+        .then(md => {
+          contentEl.innerHTML = renderMarkdown(md);
+          buildToc();
+          window.addEventListener('scroll', highlightToc, { passive: true });
+          highlightToc();
+
+          if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+              const q = e.target.value.trim().toLowerCase();
+              if (!q) {
+                contentEl.querySelectorAll('mark').forEach(m => {
+                  const parent = m.parentNode;
+                  parent.replaceChild(document.createTextNode(m.textContent), m);
+                  parent.normalize();
+                });
+                return;
+              }
+              const walker = document.createTreeWalker(contentEl, NodeFilter.SHOW_TEXT);
+              const nodes = [];
+              while (walker.nextNode()) nodes.push(walker.currentNode);
+              for (const node of nodes) {
+                const text = node.textContent;
+                if (text.toLowerCase().includes(q)) {
+                  const parts = text.split(new RegExp(`(${escapeRegExp(q)})`, 'ig'));
+                  const frag = document.createDocumentFragment();
+                  for (const part of parts) {
+                    if (part.toLowerCase() === q) {
+                      const mark = document.createElement('mark');
+                      mark.className = 'bg-[var(--soul-primary-200)] text-[var(--soul-primary-900)] rounded px-0.5';
+                      mark.textContent = part;
+                      frag.appendChild(mark);
+                    } else {
+                      frag.appendChild(document.createTextNode(part));
+                    }
+                  }
+                  node.parentNode.replaceChild(frag, node);
+                }
+              }
+            });
+          }
+        })
+        .catch(err => {
+          contentEl.innerHTML = `<div class="text-[var(--soul-state-error)]">加载原文失败：${escapeHtml(err.message)}</div>`;
+        });
+
+      function escapeRegExp(s) {
+        return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      }
+    })();
+  </script>
+
+    <style>
+    body { margin: 0; min-height: 100vh; overflow-x: hidden; }
+    #aurora-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .toc-link {
+      transition: color var(--soul-duration-fast) var(--soul-ease-out),
+                  padding-left var(--soul-duration-fast) var(--soul-ease-out);
+    }
+    .toc-link:hover, .toc-link.active {
+      color: var(--soul-primary);
+      padding-left: 4px;
+    }
+    .prose h1 { font-size: 2rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+    .prose h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .prose h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .prose p { margin-bottom: 1rem; }
+    .prose ul, .prose ol { margin-bottom: 1rem; padding-left: 1.5rem; }
+    .prose li { margin-bottom: 0.35rem; }
+    .prose blockquote {
+      border-left: 3px solid var(--soul-primary-300);
+      padding-left: 1rem;
+      margin: 1.25rem 0;
+      color: var(--soul-muted-foreground);
+      font-style: italic;
+    }
+    .prose code {
+      background: var(--soul-muted);
+      padding: 0.15rem 0.35rem;
+      border-radius: var(--soul-radius-small);
+      font-family: var(--soul-font-mono);
+      font-size: 0.9em;
+    }
+    .prose hr {
+      border: 0;
+      border-top: 1px solid var(--soul-border);
+      margin: 2rem 0;
+    }
+    .reader-scroll::-webkit-scrollbar { width: 6px; }
+    .reader-scroll::-webkit-scrollbar-thumb {
+      background: var(--soul-border);
+      border-radius: 3px;
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,32 @@
+{
+  "nodeId": "root",
+  "kind": "project-shell",
+  "status": "generated",
+  "output": "partials/project-shell.html",
+  "sharedRegions": ["global-nav", "brand-css", "background-canvas"],
+  "privateRegions": [],
+  "mutableSlots": ["main-content"],
+  "children": [
+    {
+      "nodeId": "gen-shell",
+      "kind": "shared-branch",
+      "status": "generated",
+      "output": "partials/project-shell.html",
+      "sharedRegions": ["nav", "footer", "canvas-bg"],
+      "privateRegions": [],
+      "mutableSlots": ["main-content"],
+      "children": [
+        { "nodeId": "page-index", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/index.html" },
+        { "nodeId": "page-identity", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/identity.html" },
+        { "nodeId": "page-master", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/master.html" },
+        { "nodeId": "page-philosophy", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/philosophy.html" },
+        { "nodeId": "page-metaphor", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/metaphor.html" },
+        { "nodeId": "page-methods", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/methods.html" },
+        { "nodeId": "page-tools", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/tools.html" },
+        { "nodeId": "page-collection", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/collection.html" },
+        { "nodeId": "page-relations", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/relations.html" },
+        { "nodeId": "page-source", "kind": "page-leaf", "status": "generated", "htmlSrc": "pages/source.html" }
+      ]
+    }
+  ]
+}

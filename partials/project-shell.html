@@ -1,0 +1,52 @@
+<!-- Shared project shell for soul-manual-v2 -->
+<!-- Included as a reference; leaf pages inline this structure for static deployment. -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: 'var(--soul-background)',
+            foreground: 'var(--soul-foreground)',
+            primary: 'var(--soul-primary)',
+            muted: 'var(--soul-muted)',
+            border: 'var(--soul-border)'
+          },
+          fontFamily: {
+            sans: 'var(--soul-font-sans)',
+            serif: 'var(--soul-font-serif)'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="soul-aurora text-foreground soul-text-body">
+  <canvas id="aurora-canvas"></canvas>
+
+  <header class="fixed top-0 left-0 right-0 z-50 soul-glass border-b border-[var(--soul-border)]">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" data-dom-id="nav-home" class="soul-text-title text-lg tracking-tight hover:opacity-80 transition-opacity">
+        <span class="soul-gradient-text">小九</span> · 灵魂说明书
+      </a>
+      <nav class="flex items-center gap-6">
+        <a href="source.html" data-dom-id="nav-source" class="text-sm text-[var(--soul-muted-foreground)] hover:text-[var(--soul-primary)] transition-colors">原文</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SLOT: main-content -->
+
+  <footer class="border-t border-[var(--soul-border)] py-8 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[var(--soul-muted-foreground)]">
+      <span>小九 · 灵魂说明书 v2.40</span>
+      <span>重构于 2026-09-03 · 琉璃渐变 · 极简诗意</span>
+    </div>
+  </footer>
+</body>

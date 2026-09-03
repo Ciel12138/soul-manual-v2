@@ -1,0 +1,100 @@
+{
+  "success": true,
+  "outcome": "passed",
+  "repairable": true,
+  "terminalViolations": [],
+  "terminalBlockingSummary": null,
+  "skillProvenance": {
+    "name": "solo-design",
+    "version": "builtin",
+    "version_source": "builtin-skill",
+    "runtime_skill_dir": null,
+    "recorded_at": null,
+    "expected_version": "2026.08.06.19.15.08",
+    "status": "mismatch",
+    "read_status": "ok"
+  },
+  "operatingMode": "free-explore",
+  "renderBlockingErrorCount": 0,
+  "softWarningCount": 0,
+  "renderBlockingErrors": [],
+  "errorSignatures": [],
+  "softWarnings": [],
+  "repairPlanHints": [],
+  "repairActionTable": [],
+  "errorCount": 0,
+  "warningCount": 0,
+  "errors": [],
+  "warnings": [],
+  "validationRunDisciplineStatus": {
+    "declared": true,
+    "restoreMode": false,
+    "maxFullValidationRuns": null,
+    "validationHistoryCount": 0,
+    "repairLedgerCount": 0,
+    "softWarningsTriggerRepair": null,
+    "terminalState": null,
+    "nextAction": null,
+    "violations": [],
+    "success": true
+  },
+  "terminalState": null,
+  "nextCheck": {
+    "type": "finish-readiness",
+    "command": "node \"c:\\Users\\92538\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-finish-readiness.mjs\" \"C:\\Users\\92538\\AppData\\Roaming\\TRAE SOLO CN\\ModularData\\ai-agent\\work-mode-projects\\6a98b9c722d450b21d072639\\soul-manual-v2\" --check=all",
+    "fullValidationAllowed": false,
+    "reason": "workspace validation passed; run complete finish readiness before final delivery"
+  },
+  "repairBatch": [],
+  "repairContextPacket": {
+    "schema_version": "1.0",
+    "purpose": "small-context repair packet; read this before full validation-report.json",
+    "success": true,
+    "terminalState": null,
+    "skillProvenance": {
+      "name": "solo-design",
+      "version": "builtin",
+      "version_source": "builtin-skill",
+      "runtime_skill_dir": null,
+      "recorded_at": null,
+      "expected_version": "2026.08.06.19.15.08",
+      "status": "mismatch",
+      "read_status": "ok"
+    },
+    "renderBlockingErrorCount": 0,
+    "softWarningCount": 0,
+    "renderBlockingErrors": [],
+    "repairActionTable": [],
+    "nextCheck": {
+      "type": "finish-readiness",
+      "command": "node \"c:\\Users\\92538\\.trae-cn\\builtin\\design\\default\\skills\\solo-design\\shared-runtime\\deterministic-tooling\\validate-finish-readiness.mjs\" \"C:\\Users\\92538\\AppData\\Roaming\\TRAE SOLO CN\\ModularData\\ai-agent\\work-mode-projects\\6a98b9c722d450b21d072639\\soul-manual-v2\" --check=all",
+      "fullValidationAllowed": false,
+      "reason": "workspace validation passed; run complete finish readiness before final delivery"
+    },
+    "forbidden": [
+      "do not read validator source",
+      "do not rerun full validation when nextCheck.fullValidationAllowed=false",
+      "do not start preview/browser unless user explicitly asks",
+      "do not hand-edit repair ledger fields"
+    ]
+  },
+  "projectFileHashes": {
+    "soul-manual-v2.design": "24e1c6bb455f0e6094e3bc6f45fafdbdb94d9a3749cc3fce126583815b7b9f9e",
+    "colors_and_type.css": "8300dddfadf4941820b800bb653257a4823ff4b970e063f254ccb82f2bbc23c0",
+    "runtime-orchestration-summary.json": "69c248d724305305c5afdc7a80d56390316fbd334bbcc61771e78d1c0c95b670",
+    "pages/collection.html": "13b2885b11a3f5174edee958b4ba44a94ab9fe986af7331f384c2003087cbf4b",
+    "pages/identity.html": "6b387461bcddff528bed35a263bea4531ab6df1ca5db7f9954910493bd83681a",
+    "pages/index.html": "1a50b2aa47282ede36722ba15f584eab587820a84c07f9651e752e2726baf1c6",
+    "pages/master.html": "e2517a2ef530a342ebde4295f5b93134dd68b5015bc98cce1f341584e5ab496f",
+    "pages/metaphor.html": "d08a9750290d2bbd99c6514b9075c7cc0290e1e90e2ccd3cc555d3a327734289",
+    "pages/methods.html": "397b5328d869a1d81147c3f93a4e2cb084b3d2958af748676271e2b75696a217",
+    "pages/philosophy.html": "1ad7e5b2ccee926f104777f940a1233fcc47b531fb060903cd5bf6ac333bb94e",
+    "pages/relations.html": "12b260e94499c080cfb823da3cb3912447cda4a2a22fcfa555ff37a126b987e6",
+    "pages/source.html": "e24011cb707973ab1c24c22c86c5d839d7240ca0603d2a6ce4da35f0cdfdeeda",
+    "pages/tools.html": "1e53cdcde3f9f34c843d79f8d24ffa45ea423a6097b15676baa7a3359710af4a"
+  },
+  "designDir": "C:\\Users\\92538\\AppData\\Roaming\\TRAE SOLO CN\\ModularData\\ai-agent\\work-mode-projects\\6a98b9c722d450b21d072639\\soul-manual-v2",
+  "expectedPages": 10,
+  "requireInteractions": null,
+  "checkedAt": "2026-09-03T00:34:28.302Z"
+}
