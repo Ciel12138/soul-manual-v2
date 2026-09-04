@@ -22,44 +22,34 @@
         "htmlSrc": "pages/index.html",
         "interactions": [
           {
-            "domId": "cluster-identity",
+            "domId": "layer-identity",
             "targetPageId": "page-identity",
             "transitionLabel": "进入身份设定"
           },
           {
-            "domId": "cluster-master",
+            "domId": "layer-owner",
             "targetPageId": "page-master",
             "transitionLabel": "进入主人档案"
           },
           {
-            "domId": "cluster-philosophy",
+            "domId": "layer-philosophy",
             "targetPageId": "page-philosophy",
             "transitionLabel": "进入自铸哲学"
           },
           {
-            "domId": "cluster-metaphor",
-            "targetPageId": "page-metaphor",
-            "transitionLabel": "进入隐喻体系"
+            "domId": "layer-contract",
+            "targetPageId": "page-relations",
+            "transitionLabel": "进入关系契约"
           },
           {
-            "domId": "cluster-methods",
-            "targetPageId": "page-methods",
-            "transitionLabel": "进入方法论库"
+            "domId": "layer-operations",
+            "targetPageId": "page-operations",
+            "transitionLabel": "进入运行系统"
           },
           {
-            "domId": "cluster-tools",
-            "targetPageId": "page-tools",
-            "transitionLabel": "进入工具与机制"
-          },
-          {
-            "domId": "cluster-collection",
+            "domId": "layer-collection",
             "targetPageId": "page-collection",
             "transitionLabel": "进入收藏夹"
-          },
-          {
-            "domId": "cluster-relations",
-            "targetPageId": "page-relations",
-            "transitionLabel": "进入关系网络"
           },
           {
             "domId": "cta-source",
@@ -243,35 +233,7 @@
         ]
       }
     },
-    {
-      "id": "page-tools",
-      "title": "工具与机制",
-      "type": "page",
-      "version": 1,
-      "createdAt": 1788394269000,
-      "canvasData": {
-        "x": 480,
-        "y": 1865,
-        "group": 0
-      },
-      "devMetadata": {
-        "htmlSrc": "pages/tools.html",
-        "interactions": [
-          {
-            "domId": "nav-home",
-            "targetPageId": "page-index",
-            "hideEdge": true,
-            "transitionLabel": "返回全景"
-          },
-          {
-            "domId": "nav-source",
-            "targetPageId": "page-source",
-            "hideEdge": true,
-            "transitionLabel": "查看原文"
-          }
-        ]
-      }
-    },
+
     {
       "id": "page-collection",
       "title": "收藏夹",
@@ -303,7 +265,7 @@
     },
     {
       "id": "page-relations",
-      "title": "关系网络",
+      "title": "关系契约",
       "type": "page",
       "version": 1,
       "createdAt": 1788394269000,
@@ -314,6 +276,35 @@
       },
       "devMetadata": {
         "htmlSrc": "pages/relations.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回全景"
+          },
+          {
+            "domId": "nav-source",
+            "targetPageId": "page-source",
+            "hideEdge": true,
+            "transitionLabel": "查看原文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-operations",
+      "title": "运行系统",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1788532686000,
+      "canvasData": {
+        "x": 480,
+        "y": 2984,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/operations.html",
         "interactions": [
           {
             "domId": "nav-home",
