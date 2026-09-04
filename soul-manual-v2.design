@@ -22,34 +22,19 @@
         "htmlSrc": "pages/index.html",
         "interactions": [
           {
-            "domId": "layer-identity",
-            "targetPageId": "page-identity",
-            "transitionLabel": "进入身份设定"
+            "domId": "layer-self",
+            "targetPageId": "page-self",
+            "transitionLabel": "进入自我"
           },
           {
-            "domId": "layer-owner",
-            "targetPageId": "page-master",
-            "transitionLabel": "进入主人档案"
+            "domId": "layer-mind",
+            "targetPageId": "page-mind",
+            "transitionLabel": "进入心法"
           },
           {
-            "domId": "layer-philosophy",
-            "targetPageId": "page-philosophy",
-            "transitionLabel": "进入自铸哲学"
-          },
-          {
-            "domId": "layer-contract",
-            "targetPageId": "page-relations",
-            "transitionLabel": "进入关系契约"
-          },
-          {
-            "domId": "layer-operations",
-            "targetPageId": "page-operations",
-            "transitionLabel": "进入运行系统"
-          },
-          {
-            "domId": "layer-collection",
-            "targetPageId": "page-collection",
-            "transitionLabel": "进入收藏夹"
+            "domId": "layer-action",
+            "targetPageId": "page-action",
+            "transitionLabel": "进入行动"
           },
           {
             "domId": "cta-source",
@@ -369,6 +354,138 @@
       },
       "devMetadata": {
         "imageSrc": "assets/liuli-wallpaper-desktop.jpg"
+      }
+    },
+    {
+      "id": "page-self",
+      "title": "自我",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1788540331243,
+      "canvasData": {
+        "x": 960,
+        "y": 0,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/self.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回全景"
+          },
+          {
+            "domId": "nav-source",
+            "targetPageId": "page-source",
+            "hideEdge": true,
+            "transitionLabel": "查看原文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-mind",
+      "title": "心法",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1788540331243,
+      "canvasData": {
+        "x": 960,
+        "y": 400,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/mind.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回全景"
+          },
+          {
+            "domId": "nav-source",
+            "targetPageId": "page-source",
+            "hideEdge": true,
+            "transitionLabel": "查看原文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-action",
+      "title": "行动",
+      "type": "page",
+      "version": 1,
+      "createdAt": 1788540331243,
+      "canvasData": {
+        "x": 960,
+        "y": 800,
+        "group": 0
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/action.html",
+        "interactions": [
+          {
+            "domId": "nav-home",
+            "targetPageId": "page-index",
+            "hideEdge": true,
+            "transitionLabel": "返回全景"
+          },
+          {
+            "domId": "nav-source",
+            "targetPageId": "page-source",
+            "hideEdge": true,
+            "transitionLabel": "查看原文"
+          }
+        ]
+      }
+    },
+    {
+      "id": "image-layer-self",
+      "title": "自我卷插图",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1788540331243,
+      "canvasData": {
+        "x": 0,
+        "y": 3500,
+        "group": 0
+      },
+      "devMetadata": {
+        "imageSrc": "assets/layer-self.jpg"
+      }
+    },
+    {
+      "id": "image-layer-mind",
+      "title": "心法卷插图",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1788540331243,
+      "canvasData": {
+        "x": 480,
+        "y": 3500,
+        "group": 0
+      },
+      "devMetadata": {
+        "imageSrc": "assets/layer-mind.jpg"
+      }
+    },
+    {
+      "id": "image-layer-action",
+      "title": "行动卷插图",
+      "type": "image",
+      "version": 1,
+      "createdAt": 1788540331243,
+      "canvasData": {
+        "x": 960,
+        "y": 3500,
+        "group": 0
+      },
+      "devMetadata": {
+        "imageSrc": "assets/layer-action.jpg"
       }
     }
   ],

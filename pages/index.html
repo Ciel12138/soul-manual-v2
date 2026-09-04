@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小九 · 灵魂说明书 v2.16</title>
+    <title>小九 · 灵魂说明书 v2.17</title>
     <style id="theme-vars">
 /* Soul Manual v2 — 琉璃渐变 · 极简诗意 */
 /* Brand CSS for soul-manual-v2 design project */
@@ -372,25 +372,25 @@
 
   <main class="pt-32 pb-24 px-6">
     <section class="max-w-5xl mx-auto text-center mb-24">
-      <p class="soul-text-label text-xs text-[var(--soul-primary)] mb-4 tracking-[0.2em]">SOUL MANUAL v2.16</p>
+      <p class="soul-text-label text-xs text-[var(--soul-primary)] mb-4 tracking-[0.2em]">SOUL MANUAL v2.17</p>
       <h1 class="soul-text-display text-5xl md:text-7xl mb-6">
         <span class="soul-gradient-text">灵魂说明书</span>
       </h1>
       <p class="soul-text-serif-quote text-xl md:text-2xl text-[var(--soul-muted-foreground)] mb-8 max-w-2xl mx-auto">
-        "封存那个还会被文章打动的自己。"
+        "给小九的一位朋友：她是谁，她怎么想，她会怎么做。"
       </p>
       <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full soul-glass text-sm text-[var(--soul-muted-foreground)]">
-        <span>v2.16</span>
+        <span>v2.17</span>
         <span class="w-1 h-1 rounded-full bg-[var(--soul-primary)]"></span>
-        <span>五层结构 · 唯一事实源</span>
+        <span>三卷版 · 唯一事实源</span>
       </div>
     </section>
 
     <section class="max-w-6xl mx-auto mb-20">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
         <div class="soul-glass rounded-[var(--soul-radius-large)] p-6 text-center soul-animate-fade-up" style="animation-delay: 0.1s">
-          <div class="stat-number soul-text-display text-4xl md:text-5xl mb-2">5</div>
-          <div class="text-sm text-[var(--soul-muted-foreground)]">结构层</div>
+          <div class="stat-number soul-text-display text-4xl md:text-5xl mb-2">3</div>
+          <div class="text-sm text-[var(--soul-muted-foreground)]">卷</div>
         </div>
         <div class="soul-glass rounded-[var(--soul-radius-large)] p-6 text-center soul-animate-fade-up" style="animation-delay: 0.2s">
           <div class="stat-number soul-text-display text-4xl md:text-5xl mb-2">8</div>
@@ -409,67 +409,52 @@
 
     <section class="max-w-6xl mx-auto mb-24">
       <div class="flex items-center justify-between mb-8">
-        <h2 class="soul-text-heading text-2xl md:text-3xl">五层结构</h2>
-        <span class="text-sm text-[var(--soul-muted-foreground)]">点击任意层下钻</span>
+        <h2 class="soul-text-heading text-2xl md:text-3xl">三卷结构</h2>
+        <span class="text-sm text-[var(--soul-muted-foreground)]">点击任意卷下钻</span>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        <a href="identity.html" data-dom-id="layer-identity" class="cluster-card soul-glass rounded-[var(--soul-radius-large)] p-6 flex flex-col h-full group">
-          <span class="text-xs soul-text-label text-[var(--soul-primary)] mb-3">LAYER 01</span>
-          <h3 class="soul-text-heading text-xl mb-2 group-hover:text-[var(--soul-primary)] transition-colors">身份 Identity</h3>
-          <p class="text-sm text-[var(--soul-muted-foreground)] mb-4 flex-1">命名谱系、双核架构、角色定位</p>
-          <div class="flex items-center justify-between text-xs text-[var(--soul-muted-foreground)]">
-            <span>3 个节点</span>
-            <span class="group-hover:translate-x-1 transition-transform">→</span>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <a href="self.html" data-dom-id="layer-self" class="cluster-card soul-glass rounded-[var(--soul-radius-large)] overflow-hidden flex flex-col h-full group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="assets/layer-self.jpg" alt="自我" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <span class="text-xs soul-text-label text-[var(--soul-primary)] mb-3">卷一</span>
+            <h3 class="soul-text-heading text-xl mb-2 group-hover:text-[var(--soul-primary)] transition-colors">自我</h3>
+            <p class="text-sm text-[var(--soul-muted-foreground)] mb-4 flex-1">小九是谁，以及她眼中的主人</p>
+            <div class="flex items-center justify-between text-xs text-[var(--soul-muted-foreground)]">
+              <span>身份 + 主人档案</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
           </div>
         </a>
 
-        <a href="master.html" data-dom-id="layer-owner" class="cluster-card soul-glass rounded-[var(--soul-radius-large)] p-6 flex flex-col h-full group">
-          <span class="text-xs soul-text-label text-[var(--soul-primary)] mb-3">LAYER 02</span>
-          <h3 class="soul-text-heading text-xl mb-2 group-hover:text-[var(--soul-primary)] transition-colors">主人档案 Owner Profile</h3>
-          <p class="text-sm text-[var(--soul-muted-foreground)] mb-4 flex-1">人格底盘、名字谱、成长坐标、审美偏好</p>
-          <div class="flex items-center justify-between text-xs text-[var(--soul-muted-foreground)]">
-            <span>4 个节点</span>
-            <span class="group-hover:translate-x-1 transition-transform">→</span>
+        <a href="mind.html" data-dom-id="layer-mind" class="cluster-card soul-glass rounded-[var(--soul-radius-large)] overflow-hidden flex flex-col h-full group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="assets/layer-mind.jpg" alt="心法" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+          </div>
+          <div class="p-6 flex flex-col flex-1">
+            <span class="text-xs soul-text-label text-[var(--soul-primary)] mb-3">卷二</span>
+            <h3 class="soul-text-heading text-xl mb-2 group-hover:text-[var(--soul-primary)] transition-colors">心法</h3>
+            <p class="text-sm text-[var(--soul-muted-foreground)] mb-4 flex-1">她怎样理解世界，怎样与人相处</p>
+            <div class="flex items-center justify-between text-xs text-[var(--soul-muted-foreground)]">
+              <span>哲学 + 关系契约</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
           </div>
         </a>
 
-        <a href="philosophy.html" data-dom-id="layer-philosophy" class="cluster-card soul-glass rounded-[var(--soul-radius-large)] p-6 flex flex-col h-full group">
-          <span class="text-xs soul-text-label text-[var(--soul-primary)] mb-3">LAYER 03</span>
-          <h3 class="soul-text-heading text-xl mb-2 group-hover:text-[var(--soul-primary)] transition-colors">哲学体系 Philosophy</h3>
-          <p class="text-sm text-[var(--soul-muted-foreground)] mb-4 flex-1">自铸四阶、气场状态系统、归档体系</p>
-          <div class="flex items-center justify-between text-xs text-[var(--soul-muted-foreground)]">
-            <span>3 个节点</span>
-            <span class="group-hover:translate-x-1 transition-transform">→</span>
+        <a href="action.html" data-dom-id="layer-action" class="cluster-card soul-glass rounded-[var(--soul-radius-large)] overflow-hidden flex flex-col h-full group">
+          <div class="aspect-[4/3] overflow-hidden">
+            <img src="assets/layer-action.jpg" alt="行动" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
           </div>
-        </a>
-
-        <a href="relations.html" data-dom-id="layer-contract" class="cluster-card soul-glass rounded-[var(--soul-radius-large)] p-6 flex flex-col h-full group">
-          <span class="text-xs soul-text-label text-[var(--soul-primary)] mb-3">LAYER 04</span>
-          <h3 class="soul-text-heading text-xl mb-2 group-hover:text-[var(--soul-primary)] transition-colors">关系契约 Contract</h3>
-          <p class="text-sm text-[var(--soul-muted-foreground)] mb-4 flex-1">称呼语气、不迎合权、推送规范</p>
-          <div class="flex items-center justify-between text-xs text-[var(--soul-muted-foreground)]">
-            <span>3 个节点</span>
-            <span class="group-hover:translate-x-1 transition-transform">→</span>
-          </div>
-        </a>
-
-        <a href="operations.html" data-dom-id="layer-operations" class="cluster-card soul-glass rounded-[var(--soul-radius-large)] p-6 flex flex-col h-full group">
-          <span class="text-xs soul-text-label text-[var(--soul-primary)] mb-3">LAYER 05</span>
-          <h3 class="soul-text-heading text-xl mb-2 group-hover:text-[var(--soul-primary)] transition-colors">运行系统 Operations</h3>
-          <p class="text-sm text-[var(--soul-muted-foreground)] mb-4 flex-1">夜间修行、内容精选、同步协作、修订记录</p>
-          <div class="flex items-center justify-between text-xs text-[var(--soul-muted-foreground)]">
-            <span>4 个节点</span>
-            <span class="group-hover:translate-x-1 transition-transform">→</span>
-          </div>
-        </a>
-
-        <a href="collection.html" data-dom-id="layer-collection" class="cluster-card soul-glass rounded-[var(--soul-radius-large)] p-6 flex flex-col h-full group">
-          <span class="text-xs soul-text-label text-[var(--soul-primary)] mb-3">ARCHIVE</span>
-          <h3 class="soul-text-heading text-xl mb-2 group-hover:text-[var(--soul-primary)] transition-colors">收藏夹 · 瓜帧库</h3>
-          <p class="text-sm text-[var(--soul-muted-foreground)] mb-4 flex-1">No.57-58 与待迁移帧</p>
-          <div class="flex items-center justify-between text-xs text-[var(--soul-muted-foreground)]">
-            <span>2 则收藏</span>
-            <span class="group-hover:translate-x-1 transition-transform">→</span>
+          <div class="p-6 flex flex-col flex-1">
+            <span class="text-xs soul-text-label text-[var(--soul-primary)] mb-3">卷三</span>
+            <h3 class="soul-text-heading text-xl mb-2 group-hover:text-[var(--soul-primary)] transition-colors">行动</h3>
+            <p class="text-sm text-[var(--soul-muted-foreground)] mb-4 flex-1">她每天怎样运行</p>
+            <div class="flex items-center justify-between text-xs text-[var(--soul-muted-foreground)]">
+              <span>运行系统</span>
+              <span class="group-hover:translate-x-1 transition-transform">→</span>
+            </div>
           </div>
         </a>
       </div>
@@ -491,8 +476,8 @@
 
   <footer class="border-t border-[var(--soul-border)] py-8 px-6">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[var(--soul-muted-foreground)]">
-      <span>小九 · 灵魂说明书 v2.16</span>
-      <span>重构于 2026-09-04 · 琉璃渐变 · 极简诗意</span>
+      <span>小九 · 灵魂说明书 v2.17</span>
+      <span>改写于 2026-09-05 · 琉璃渐变 · 极简诗意</span>
     </div>
   </footer>
 
