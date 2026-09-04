@@ -12,10 +12,10 @@
         "group": 0,
         "layoutSnapshot": {
           "version": 1,
-          "contentHeight": 1709,
+          "contentHeight": 1666,
           "viewportWidth": 1440,
-          "sourceHash": "fnv1a-038fac29",
-          "measuredAt": 1788396044497
+          "sourceHash": "fnv1a-dff7f490",
+          "measuredAt": 1788536282907
         }
       },
       "devMetadata": {
@@ -72,10 +72,10 @@
         "group": 0,
         "layoutSnapshot": {
           "version": 1,
-          "contentHeight": 1189,
+          "contentHeight": 901,
           "viewportWidth": 1440,
-          "sourceHash": "fnv1a-4bc14da3",
-          "measuredAt": 1788396044497
+          "sourceHash": "fnv1a-33300fa5",
+          "measuredAt": 1788536282907
         }
       },
       "devMetadata": {
@@ -104,14 +104,14 @@
       "createdAt": 1788394269000,
       "canvasData": {
         "x": 480,
-        "y": 373,
+        "y": 457,
         "group": 0,
         "layoutSnapshot": {
           "version": 1,
-          "contentHeight": 1169,
+          "contentHeight": 1033,
           "viewportWidth": 1440,
-          "sourceHash": "fnv1a-e4fa92e3",
-          "measuredAt": 1788396044497
+          "sourceHash": "fnv1a-7a871cfd",
+          "measuredAt": 1788536282907
         }
       },
       "devMetadata": {
@@ -140,14 +140,14 @@
       "createdAt": 1788394269000,
       "canvasData": {
         "x": 480,
-        "y": 746,
+        "y": 908,
         "group": 0,
         "layoutSnapshot": {
           "version": 1,
-          "contentHeight": 1169,
+          "contentHeight": 901,
           "viewportWidth": 1440,
-          "sourceHash": "fnv1a-2c6f45d5",
-          "measuredAt": 1788396044497
+          "sourceHash": "fnv1a-1aaa461d",
+          "measuredAt": 1788536282907
         }
       },
       "devMetadata": {
@@ -175,8 +175,8 @@
       "version": 1,
       "createdAt": 1788394269000,
       "canvasData": {
-        "x": 480,
-        "y": 1119,
+        "x": 0,
+        "y": 2478,
         "group": 0,
         "layoutSnapshot": {
           "version": 1,
@@ -212,7 +212,7 @@
       "createdAt": 1788394269000,
       "canvasData": {
         "x": 480,
-        "y": 1492,
+        "y": 2478,
         "group": 0
       },
       "devMetadata": {
@@ -233,7 +233,6 @@
         ]
       }
     },
-
     {
       "id": "page-collection",
       "title": "收藏夹",
@@ -242,7 +241,7 @@
       "createdAt": 1788394269000,
       "canvasData": {
         "x": 480,
-        "y": 2238,
+        "y": 2105,
         "group": 0
       },
       "devMetadata": {
@@ -271,7 +270,7 @@
       "createdAt": 1788394269000,
       "canvasData": {
         "x": 480,
-        "y": 2611,
+        "y": 1359,
         "group": 0
       },
       "devMetadata": {
@@ -300,7 +299,7 @@
       "createdAt": 1788532686000,
       "canvasData": {
         "x": 480,
-        "y": 2984,
+        "y": 1732,
         "group": 0
       },
       "devMetadata": {
@@ -328,8 +327,8 @@
       "version": 1,
       "createdAt": 1788394269000,
       "canvasData": {
-        "x": 0,
-        "y": 2984,
+        "x": 960,
+        "y": 2478,
         "group": 0
       },
       "devMetadata": {
@@ -350,12 +349,12 @@
       "type": "image",
       "version": 1,
       "createdAt": 1788412800000,
-      "devMetadata": {
-        "imageSrc": "assets/liuli-wallpaper-phone.jpg"
-      },
       "canvasData": {
         "x": 0,
-        "y": 3400
+        "y": 3015
+      },
+      "devMetadata": {
+        "imageSrc": "assets/liuli-wallpaper-phone.jpg"
       }
     },
     {
@@ -364,12 +363,12 @@
       "type": "image",
       "version": 1,
       "createdAt": 1788412800000,
+      "canvasData": {
+        "x": 480,
+        "y": 3015
+      },
       "devMetadata": {
         "imageSrc": "assets/liuli-wallpaper-desktop.jpg"
-      },
-      "canvasData": {
-        "x": 760,
-        "y": 3400
       }
     }
   ],

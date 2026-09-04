@@ -405,16 +405,23 @@
       </div>
 
       <!-- Card reader modal -->
-      <div id="reader-modal" class="fixed inset-0 z-[100] hidden" aria-hidden="true">
-        <div class="absolute inset-0 bg-[var(--soul-neutral-950)]/60 backdrop-blur-sm" id="modal-backdrop"></div>
-        <div class="absolute inset-x-0 bottom-0 md:inset-0 md:flex md:items-center md:justify-center p-0 md:p-6">
+      <div id="reader-modal" class="fixed inset-0 z-[100] opacity-0 pointer-events-none transition-opacity duration-300" aria-hidden="true">
+        <div class="absolute inset-0 bg-[var(--soul-neutral-950)]/60 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="modal-backdrop"></div>
+        <div id="modal-shell" class="absolute inset-x-0 bottom-0 md:inset-0 md:flex md:items-center md:justify-center p-0 md:p-6 translate-y-6 md:translate-y-0 scale-[0.98] opacity-0 transition-all duration-300">
           <div class="relative w-full md:max-w-3xl md:max-h-[85vh] h-[92vh] md:h-auto soul-glass-strong rounded-t-[var(--soul-radius-large)] md:rounded-[var(--soul-radius-large)] flex flex-col shadow-2xl overflow-hidden">
             <div class="flex items-center justify-between px-5 py-4 border-b border-[var(--soul-border)]">
               <div class="min-w-0">
                 <p id="modal-meta" class="text-xs text-[var(--soul-muted-foreground)] mb-0.5"></p>
                 <h2 id="modal-title" class="soul-text-heading text-lg truncate pr-4"></h2>
               </div>
-              <div class="flex items-center gap-2 shrink-0">
+              <div class="flex items-center gap-1 shrink-0">
+                <div class="hidden sm:flex items-center mr-1 bg-[var(--soul-muted)] rounded-[var(--soul-radius-small)] p-0.5">
+                  <button id="btn-font-dec" class="px-2 py-1 text-xs hover:text-[var(--soul-primary)] transition-colors" title="减小字号">A-</button>
+                  <button id="btn-font-inc" class="px-2 py-1 text-xs hover:text-[var(--soul-primary)] transition-colors" title="加大字号">A+</button>
+                </div>
+                <button id="btn-copy" class="p-2 rounded-[var(--soul-radius-small)] hover:bg-[var(--soul-muted)] transition-colors text-[var(--soul-muted-foreground)]" title="复制本节">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+                </button>
                 <button id="btn-share" class="p-2 rounded-[var(--soul-radius-small)] hover:bg-[var(--soul-muted)] transition-colors text-[var(--soul-primary)]" title="分享">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
                 </button>
@@ -429,7 +436,15 @@
                 </button>
               </div>
             </div>
-            <div id="modal-body" class="flex-1 overflow-y-auto reader-scroll p-6 md:p-10 prose soul-text-body"></div>
+            <div class="relative">
+              <div id="modal-progress" class="h-0.5 bg-[var(--soul-primary)]/15 w-full">
+                <div id="modal-progress-bar" class="h-full bg-gradient-to-r from-[var(--soul-primary-400)] to-[var(--soul-primary-600)] w-0 transition-all duration-150"></div>
+              </div>
+            </div>
+            <div id="modal-body" class="flex-1 overflow-y-auto reader-scroll p-6 md:p-10 prose soul-text-body transition-all duration-200"></div>
+            <button id="btn-scroll-top" class="absolute right-5 bottom-20 md:bottom-24 p-2.5 rounded-full soul-glass text-[var(--soul-muted-foreground)] hover:text-[var(--soul-primary)] opacity-0 pointer-events-none transition-all duration-300 shadow-lg" title="回到顶部">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+            </button>
             <div class="px-5 py-4 border-t border-[var(--soul-border)] flex items-center justify-between">
               <button id="btn-prev-mobile" class="md:hidden inline-flex items-center gap-1 text-sm text-[var(--soul-muted-foreground)] hover:text-[var(--soul-primary)]">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg> 上一篇
@@ -530,12 +545,17 @@
       const searchInput = document.getElementById('search-input');
       const modal = document.getElementById('reader-modal');
       const modalBackdrop = document.getElementById('modal-backdrop');
+      const modalShell = document.getElementById('modal-shell');
       const modalTitle = document.getElementById('modal-title');
       const modalMeta = document.getElementById('modal-meta');
       const modalBody = document.getElementById('modal-body');
       const modalCounter = document.getElementById('modal-counter');
+      const modalProgressBar = document.getElementById('modal-progress-bar');
+      const btnScrollTop = document.getElementById('btn-scroll-top');
       let sections = [];
       let currentIndex = -1;
+      let fontSizeIndex = 1;
+      const fontSizeValues = ['0.875rem', '1rem', '1.125rem', '1.25rem'];
 
       function escapeHtml(s) {
         return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -630,6 +650,12 @@
         return text.length > max ? text.slice(0, max) + '…' : text;
       }
 
+      function highlightMatch(text, q) {
+        if (!q) return escapeHtml(text);
+        const re = new RegExp('(' + escapeHtml(q).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+        return escapeHtml(text).replace(re, '<mark class="bg-[var(--soul-primary-200)] text-[var(--soul-primary-900)] rounded px-0.5">$1</mark>');
+      }
+
       function wordCount(lines) {
         return lines.join('').replace(/\s/g, '').length;
       }
@@ -641,14 +667,16 @@
           gridEl.innerHTML = `<div class="col-span-full soul-glass rounded-[var(--soul-radius-large)] p-10 text-center text-[var(--soul-muted-foreground)]">没有找到与“${escapeHtml(q)}”相关的卡片</div>`;
           return;
         }
-        gridEl.innerHTML = filtered.map((s, i) => `
-          <article class="source-card soul-glass rounded-[var(--soul-radius-large)] p-7 flex flex-col h-full cursor-pointer group soul-animate-fade-up" style="animation-delay: ${Math.min(i * 0.05, 0.5)}s" data-index="${sections.indexOf(s)}" data-id="${s.id}">
+        gridEl.innerHTML = filtered.map((s, i) => {
+          const sectionIndex = sections.indexOf(s);
+          return `
+          <article class="source-card soul-glass rounded-[var(--soul-radius-large)] p-7 flex flex-col h-full cursor-pointer group soul-animate-fade-up" style="animation-delay: ${Math.min(i * 0.05, 0.5)}s" data-index="${sectionIndex}" data-id="${s.id}">
             <div class="flex items-start justify-between gap-3 mb-3">
-              <span class="text-[10px] soul-text-label tracking-[0.15em] text-[var(--soul-primary)]">SECTION ${String(sections.indexOf(s) + 1).padStart(2, '0')}</span>
+              <span class="text-[10px] soul-text-label tracking-[0.15em] text-[var(--soul-primary)]">SECTION ${String(sectionIndex + 1).padStart(2, '0')}</span>
               <span class="text-xs text-[var(--soul-muted-foreground)]">${wordCount(s.body)} 字</span>
             </div>
-            <h3 class="soul-text-heading text-lg mb-3 group-hover:text-[var(--soul-primary)] transition-colors line-clamp-2">${escapeHtml(s.text)}</h3>
-            <p class="text-sm text-[var(--soul-muted-foreground)] mb-5 flex-1 line-clamp-3">${escapeHtml(excerpt(s.body))}</p>
+            <h3 class="soul-text-heading text-lg mb-3 group-hover:text-[var(--soul-primary)] transition-colors line-clamp-2">${highlightMatch(s.text, q)}</h3>
+            <p class="text-sm text-[var(--soul-muted-foreground)] mb-5 flex-1 line-clamp-3">${highlightMatch(excerpt(s.body), q)}</p>
             <div class="flex items-center justify-between pt-4 border-t border-[var(--soul-border)]">
               <span class="text-xs text-[var(--soul-muted-foreground)]">${s.level === 1 ? '一级章节' : s.level === 2 ? '二级章节' : '三级章节'}</span>
               <span class="inline-flex items-center gap-1 text-sm text-[var(--soul-primary)] group-hover:translate-x-1 transition-transform">
@@ -656,7 +684,8 @@
               </span>
             </div>
           </article>
-        `).join('');
+        `;
+        }).join('');
 
         gridEl.querySelectorAll('.source-card').forEach(card => {
           card.addEventListener('click', () => openModal(parseInt(card.dataset.index, 10)));
@@ -667,8 +696,8 @@
         if (!sections.length) return;
         let html = '';
         for (const s of sections) {
-          const indent = (s.level - 1) * 12;
-          html += `<a href="#${s.id}" class="toc-link block text-[var(--soul-muted-foreground)] hover:text-[var(--soul-primary)]" style="padding-left:${indent}px" data-id="${s.id}">${escapeHtml(s.text)}</a>`;
+          const indent = (s.level - 1) * 14;
+          html += `<a href="#${s.id}" class="toc-link block text-[var(--soul-muted-foreground)]" style="margin-left:${indent}px" data-id="${s.id}">${escapeHtml(s.text)}</a>`;
         }
         tocEl.innerHTML = html;
         tocEl.querySelectorAll('a').forEach(a => {
@@ -688,6 +717,32 @@
         `;
       }
 
+      function applyFontSize() {
+        modalBody.style.fontSize = fontSizeValues[fontSizeIndex];
+      }
+
+      function updateActiveToc() {
+        tocEl.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+        if (currentIndex < 0) return;
+        const active = tocEl.querySelector(`a[data-id="${sections[currentIndex].id}"]`);
+        if (active) {
+          active.classList.add('active');
+          active.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        }
+      }
+
+      function updateProgress() {
+        if (!modalBody.scrollHeight) return;
+        const scrolled = modalBody.scrollTop;
+        const total = modalBody.scrollHeight - modalBody.clientHeight;
+        const pct = total > 0 ? (scrolled / total) * 100 : 0;
+        modalProgressBar.style.width = pct + '%';
+        const showTop = scrolled > 240;
+        btnScrollTop.style.opacity = showTop ? '1' : '0';
+        btnScrollTop.style.pointerEvents = showTop ? 'auto' : 'none';
+        btnScrollTop.style.transform = showTop ? 'translateY(0)' : 'translateY(0.5rem)';
+      }
+
       function openModal(index) {
         if (index < 0 || index >= sections.length) return;
         currentIndex = index;
@@ -695,18 +750,33 @@
         modalTitle.textContent = s.text;
         modalMeta.textContent = `SECTION ${String(index + 1).padStart(2, '0')} · ${wordCount(s.body)} 字`;
         modalBody.innerHTML = renderBody(s.body);
+        modalBody.scrollTop = 0;
         modalCounter.textContent = `${index + 1} / ${sections.length}`;
-        modal.classList.remove('hidden');
+        applyFontSize();
+        updateActiveToc();
+        modalProgressBar.style.width = '0%';
+        modal.classList.remove('pointer-events-none');
+        requestAnimationFrame(() => {
+          modal.classList.remove('opacity-0');
+          modalBackdrop.classList.remove('opacity-0');
+          modalShell.classList.remove('translate-y-6', 'md:translate-y-0', 'scale-[0.98]', 'opacity-0');
+        });
         modal.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
         history.replaceState(null, '', '#' + s.id);
       }
 
       function closeModal() {
-        modal.classList.add('hidden');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        currentIndex = -1;
+        modal.classList.add('opacity-0');
+        modalBackdrop.classList.add('opacity-0');
+        modalShell.classList.add('translate-y-6', 'md:translate-y-0', 'scale-[0.98]', 'opacity-0');
+        setTimeout(() => {
+          modal.classList.add('pointer-events-none');
+          modal.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+          currentIndex = -1;
+          tocEl.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+        }, 300);
         history.replaceState(null, '', location.pathname);
       }
 
@@ -723,6 +793,27 @@
         }
       }
 
+      async function copyCurrent() {
+        if (currentIndex < 0) return;
+        const s = sections[currentIndex];
+        const text = `# ${s.text}\n\n${s.body.join('\n')}`;
+        try {
+          await navigator.clipboard.writeText(text);
+          const btn = document.getElementById('btn-copy');
+          const original = btn.innerHTML;
+          btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`;
+          btn.classList.add('copy-success');
+          setTimeout(() => { btn.innerHTML = original; btn.classList.remove('copy-success'); }, 1400);
+        } catch (e) {
+          alert('复制失败，请手动复制');
+        }
+      }
+
+      function adjustFontSize(delta) {
+        fontSizeIndex = Math.max(0, Math.min(fontSizeValues.length - 1, fontSizeIndex + delta));
+        applyFontSize();
+      }
+
       document.getElementById('btn-close').addEventListener('click', closeModal);
       modalBackdrop.addEventListener('click', closeModal);
       document.getElementById('btn-prev').addEventListener('click', () => openModal(currentIndex - 1));
@@ -730,15 +821,35 @@
       document.getElementById('btn-prev-mobile').addEventListener('click', () => openModal(currentIndex - 1));
       document.getElementById('btn-next-mobile').addEventListener('click', () => openModal(currentIndex + 1));
       document.getElementById('btn-share').addEventListener('click', shareCurrent);
+      document.getElementById('btn-copy').addEventListener('click', copyCurrent);
+      document.getElementById('btn-font-dec').addEventListener('click', () => adjustFontSize(-1));
+      document.getElementById('btn-font-inc').addEventListener('click', () => adjustFontSize(1));
+      btnScrollTop.addEventListener('click', () => modalBody.scrollTo({ top: 0, behavior: 'smooth' }));
+      modalBody.addEventListener('scroll', updateProgress, { passive: true });
+
+      let touchStartX = 0;
+      let touchStartY = 0;
+      modalShell.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+      modalShell.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].screenX - touchStartX;
+        const dy = e.changedTouches[0].screenY - touchStartY;
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 56) {
+          if (dx < 0) openModal(currentIndex + 1);
+          else openModal(currentIndex - 1);
+        }
+      }, { passive: true });
 
       document.addEventListener('keydown', e => {
-        if (modal.classList.contains('hidden')) return;
+        if (modal.classList.contains('pointer-events-none')) return;
         if (e.key === 'Escape') closeModal();
         if (e.key === 'ArrowLeft') openModal(currentIndex - 1);
         if (e.key === 'ArrowRight') openModal(currentIndex + 1);
       });
 
-      fetch('../assets/soul-manual.md')
+      fetch('./assets/soul-manual.md')
         .then(r => { if (!r.ok) throw new Error('无法加载原文'); return r.text(); })
         .then(md => {
           sections = parseMarkdown(md);
@@ -753,8 +864,12 @@
           gridEl.innerHTML = `<div class="col-span-full soul-glass rounded-[var(--soul-radius-large)] p-10 text-center text-[var(--soul-state-error)]">加载原文失败：${escapeHtml(err.message)}</div>`;
         });
 
+      let searchDebounce;
       if (searchInput) {
-        searchInput.addEventListener('input', e => renderCards(e.target.value));
+        searchInput.addEventListener('input', e => {
+          clearTimeout(searchDebounce);
+          searchDebounce = setTimeout(() => renderCards(e.target.value), 180);
+        });
       }
     })();
   </script>
@@ -770,13 +885,29 @@
       pointer-events: none;
     }
     .toc-link {
+      position: relative;
+      border-radius: var(--soul-radius-small);
+      padding: 0.35rem 0.5rem;
+      margin-left: -0.5rem;
+      margin-right: -0.5rem;
       transition: color var(--soul-duration-fast) var(--soul-ease-out),
-                  padding-left var(--soul-duration-fast) var(--soul-ease-out);
+                  background-color var(--soul-duration-fast) var(--soul-ease-out);
     }
-    .toc-link:hover, .toc-link.active {
-      color: var(--soul-primary);
-      padding-left: 4px;
+    .toc-link::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.35rem;
+      bottom: 0.35rem;
+      width: 2px;
+      border-radius: 2px;
+      background: var(--soul-primary);
+      opacity: 0;
+      transition: opacity var(--soul-duration-fast) var(--soul-ease-out);
     }
+    .toc-link:hover { color: var(--soul-primary); background: var(--soul-muted); }
+    .toc-link.active { color: var(--soul-primary); background: var(--soul-muted); }
+    .toc-link.active::before { opacity: 1; }
     .prose h1 { font-size: 2rem; margin-top: 2.5rem; margin-bottom: 1rem; }
     .prose h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 0.75rem; }
     .prose h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
@@ -832,6 +963,25 @@
     .reader-scroll::-webkit-scrollbar-thumb {
       background: var(--soul-border);
       border-radius: 3px;
+    }
+    #btn-scroll-top {
+      z-index: 10;
+    }
+    #btn-scroll-top:hover {
+      transform: translateY(-2px) !important;
+    }
+    .source-card {
+      transition: transform var(--soul-duration-normal) var(--soul-ease-out),
+                  box-shadow var(--soul-duration-normal) var(--soul-ease-out);
+    }
+    .source-card mark {
+      font-weight: 500;
+    }
+    .copy-success { color: var(--soul-state-success) !important; }
+    @media (max-width: 768px) {
+      #reader-modal .soul-glass-strong {
+        border-radius: var(--soul-radius-large) var(--soul-radius-large) 0 0;
+      }
     }
   </style>
 </body>
