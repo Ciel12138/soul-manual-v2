@@ -12,10 +12,10 @@
         "group": 0,
         "layoutSnapshot": {
           "version": 1,
-          "contentHeight": 1666,
+          "contentHeight": 1761,
           "viewportWidth": 1440,
-          "sourceHash": "fnv1a-dff7f490",
-          "measuredAt": 1788536282907
+          "sourceHash": "fnv1a-7f68dbe6",
+          "measuredAt": 1788540395204
         }
       },
       "devMetadata": {
@@ -52,8 +52,8 @@
       "version": 1,
       "createdAt": 1788394269000,
       "canvasData": {
-        "x": 480,
-        "y": 0,
+        "x": 0,
+        "y": 1119,
         "group": 0,
         "layoutSnapshot": {
           "version": 1,
@@ -89,7 +89,7 @@
       "createdAt": 1788394269000,
       "canvasData": {
         "x": 480,
-        "y": 457,
+        "y": 1119,
         "group": 0,
         "layoutSnapshot": {
           "version": 1,
@@ -124,8 +124,8 @@
       "version": 1,
       "createdAt": 1788394269000,
       "canvasData": {
-        "x": 480,
-        "y": 908,
+        "x": 960,
+        "y": 1119,
         "group": 0,
         "layoutSnapshot": {
           "version": 1,
@@ -160,8 +160,8 @@
       "version": 1,
       "createdAt": 1788394269000,
       "canvasData": {
-        "x": 0,
-        "y": 2478,
+        "x": 1440,
+        "y": 1119,
         "group": 0,
         "layoutSnapshot": {
           "version": 1,
@@ -196,8 +196,8 @@
       "version": 1,
       "createdAt": 1788394269000,
       "canvasData": {
-        "x": 480,
-        "y": 2478,
+        "x": 1920,
+        "y": 1119,
         "group": 0
       },
       "devMetadata": {
@@ -225,8 +225,8 @@
       "version": 1,
       "createdAt": 1788394269000,
       "canvasData": {
-        "x": 480,
-        "y": 2105,
+        "x": 2400,
+        "y": 1119,
         "group": 0
       },
       "devMetadata": {
@@ -254,8 +254,8 @@
       "version": 1,
       "createdAt": 1788394269000,
       "canvasData": {
-        "x": 480,
-        "y": 1359,
+        "x": 2880,
+        "y": 1119,
         "group": 0
       },
       "devMetadata": {
@@ -283,8 +283,8 @@
       "version": 1,
       "createdAt": 1788532686000,
       "canvasData": {
-        "x": 480,
-        "y": 1732,
+        "x": 3360,
+        "y": 1119,
         "group": 0
       },
       "devMetadata": {
@@ -312,8 +312,8 @@
       "version": 1,
       "createdAt": 1788394269000,
       "canvasData": {
-        "x": 960,
-        "y": 2478,
+        "x": 3840,
+        "y": 1119,
         "group": 0
       },
       "devMetadata": {
@@ -336,7 +336,7 @@
       "createdAt": 1788412800000,
       "canvasData": {
         "x": 0,
-        "y": 3015
+        "y": 1656
       },
       "devMetadata": {
         "imageSrc": "assets/liuli-wallpaper-phone.jpg"
@@ -350,7 +350,7 @@
       "createdAt": 1788412800000,
       "canvasData": {
         "x": 480,
-        "y": 3015
+        "y": 1656
       },
       "devMetadata": {
         "imageSrc": "assets/liuli-wallpaper-desktop.jpg"
@@ -363,9 +363,16 @@
       "version": 1,
       "createdAt": 1788540331243,
       "canvasData": {
-        "x": 960,
+        "x": 480,
         "y": 0,
-        "group": 0
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1612,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-194c8ce0",
+          "measuredAt": 1788540395204
+        }
       },
       "devMetadata": {
         "htmlSrc": "pages/self.html",
@@ -392,9 +399,16 @@
       "version": 1,
       "createdAt": 1788540331243,
       "canvasData": {
-        "x": 960,
-        "y": 400,
-        "group": 0
+        "x": 480,
+        "y": 373,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1612,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-74aff089",
+          "measuredAt": 1788540395204
+        }
       },
       "devMetadata": {
         "htmlSrc": "pages/mind.html",
@@ -421,9 +435,16 @@
       "version": 1,
       "createdAt": 1788540331243,
       "canvasData": {
-        "x": 960,
-        "y": 800,
-        "group": 0
+        "x": 480,
+        "y": 746,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1723,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-67925426",
+          "measuredAt": 1788540395204
+        }
       },
       "devMetadata": {
         "htmlSrc": "pages/action.html",
@@ -450,8 +471,8 @@
       "version": 1,
       "createdAt": 1788540331243,
       "canvasData": {
-        "x": 0,
-        "y": 3500,
+        "x": 960,
+        "y": 1656,
         "group": 0
       },
       "devMetadata": {
@@ -465,8 +486,8 @@
       "version": 1,
       "createdAt": 1788540331243,
       "canvasData": {
-        "x": 480,
-        "y": 3500,
+        "x": 1440,
+        "y": 1656,
         "group": 0
       },
       "devMetadata": {
@@ -480,8 +501,8 @@
       "version": 1,
       "createdAt": 1788540331243,
       "canvasData": {
-        "x": 960,
-        "y": 3500,
+        "x": 1920,
+        "y": 1656,
         "group": 0
       },
       "devMetadata": {
