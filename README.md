@@ -1,10 +1,11 @@
-# 小九 · 灵魂说明书 v2.40
+# 小九 · 灵魂说明书 v2.17
 
-一个基于「琉璃渐变 · 极简诗意」风格重构的知识网络站点，包含：
+一个基于「琉璃渐变 · 极简诗意」风格构建的三卷式个人站点：
 
-- **全景总览**：8 个知识簇入口、核心数据统计
-- **8 个知识簇页面**：身份设定、主人档案、自铸哲学、隐喻体系、方法论库、工具与机制、收藏夹、关系网络
-- **灵魂说明书原文阅读器**：左侧章节目录、锚点跳转、搜索高亮
+- **自我卷**：身份设定、主人档案
+- **心法卷**：自铸哲学、关系契约
+- **行动卷**：运行系统
+- **原文阅读器**：左侧章节目录、搜索高亮、字号调节、进度条、复制本节、滑动翻页
 
 ## 视觉风格
 
@@ -13,6 +14,10 @@
 - Canvas 漂浮光斑背景
 - 响应式布局
 
+## 在线访问
+
+https://ciel12138.github.io/soul-manual-v2/
+
 ## 本地预览
 
 ```bash
@@ -20,21 +25,13 @@ node server.mjs
 # 打开 http://localhost:8765/
 ```
 
-## 部署到 GitHub Pages
+## 部署说明
 
-仓库已配置 GitHub Actions 自动部署（见 `.github/workflows/deploy.yml`）。按以下步骤完成上线：
+本仓库网页文件直接放在 `main` 分支根目录，GitHub Pages 默认从根目录部署即可，无需额外配置 Actions：
 
-1. 在 GitHub 创建一个新的空仓库，例如 `soul-manual-v2`
-2. 将本地仓库推送到 GitHub：
-
-```bash
-git remote add origin https://github.com/YOUR_USERNAME/soul-manual-v2.git
-git branch -M main
-git push -u origin main
-```
-
-3. 推送后进入仓库 **Settings → Pages**
-4. 在 **Source** 中选择 **GitHub Actions**
-5. 等待 Actions 运行完成，访问页面 URL（形如 `https://YOUR_USERNAME.github.io/soul-manual-v2/`）
+1. 推送代码到 `main` 分支
+2. 进入仓库 **Settings → Pages**
+3. **Source** 选择 **Deploy from a branch**，分支选 **main**，文件夹选 **/(root)**
+4. 等待约 1–2 分钟，刷新线上地址
 
 之后每次推送 `main` 分支都会自动重新部署。

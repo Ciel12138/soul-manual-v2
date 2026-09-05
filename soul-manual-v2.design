@@ -19,7 +19,7 @@
         }
       },
       "devMetadata": {
-        "htmlSrc": "pages/index.html",
+        "htmlSrc": "index.html",
         "interactions": [
           {
             "domId": "layer-self",
@@ -64,7 +64,7 @@
         }
       },
       "devMetadata": {
-        "htmlSrc": "pages/identity.html",
+        "htmlSrc": "identity.html",
         "interactions": [
           {
             "domId": "nav-home",
@@ -100,7 +100,7 @@
         }
       },
       "devMetadata": {
-        "htmlSrc": "pages/master.html",
+        "htmlSrc": "master.html",
         "interactions": [
           {
             "domId": "nav-home",
@@ -136,7 +136,7 @@
         }
       },
       "devMetadata": {
-        "htmlSrc": "pages/philosophy.html",
+        "htmlSrc": "philosophy.html",
         "interactions": [
           {
             "domId": "nav-home",
@@ -172,7 +172,7 @@
         }
       },
       "devMetadata": {
-        "htmlSrc": "pages/metaphor.html",
+        "htmlSrc": "metaphor.html",
         "interactions": [
           {
             "domId": "nav-home",
@@ -201,7 +201,7 @@
         "group": 0
       },
       "devMetadata": {
-        "htmlSrc": "pages/methods.html",
+        "htmlSrc": "methods.html",
         "interactions": [
           {
             "domId": "nav-home",
@@ -230,7 +230,7 @@
         "group": 0
       },
       "devMetadata": {
-        "htmlSrc": "pages/collection.html",
+        "htmlSrc": "collection.html",
         "interactions": [
           {
             "domId": "nav-home",
@@ -259,7 +259,7 @@
         "group": 0
       },
       "devMetadata": {
-        "htmlSrc": "pages/relations.html",
+        "htmlSrc": "relations.html",
         "interactions": [
           {
             "domId": "nav-home",
@@ -288,7 +288,7 @@
         "group": 0
       },
       "devMetadata": {
-        "htmlSrc": "pages/operations.html",
+        "htmlSrc": "operations.html",
         "interactions": [
           {
             "domId": "nav-home",
@@ -317,7 +317,7 @@
         "group": 0
       },
       "devMetadata": {
-        "htmlSrc": "pages/source.html",
+        "htmlSrc": "source.html",
         "interactions": [
           {
             "domId": "nav-home",
@@ -375,7 +375,7 @@
         }
       },
       "devMetadata": {
-        "htmlSrc": "pages/self.html",
+        "htmlSrc": "self.html",
         "interactions": [
           {
             "domId": "nav-home",
@@ -411,7 +411,7 @@
         }
       },
       "devMetadata": {
-        "htmlSrc": "pages/mind.html",
+        "htmlSrc": "mind.html",
         "interactions": [
           {
             "domId": "nav-home",
@@ -447,7 +447,7 @@
         }
       },
       "devMetadata": {
-        "htmlSrc": "pages/action.html",
+        "htmlSrc": "action.html",
         "interactions": [
           {
             "domId": "nav-home",
